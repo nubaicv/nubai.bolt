@@ -1,0 +1,16 @@
+<ul>
+{% for item in menu %}
+    <li class="{{ item|current ? ' active' }}">
+        <a href="{{ item.link }}" {% if item.title is defined %}title="{{ item.title|escape }}"{% endif %}>{{ item.label }}</a>
+        {% if item.submenu is defined %}
+            <ul>
+                {% for item in item.submenu %}
+                    <li class="{{ item.class }}">
+                        <a href="{{ item.link }}" title="{{ item.title }}">{{ item.label }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

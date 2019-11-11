@@ -1,0 +1,19 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+    {% if record is defined %}
+
+        <h1>{{ record.title }}</h1>
+        
+        {{ menu('mymain', 'partials/_menu_mymain.twig') }}
+
+        {{ record.teaser }}
+
+        {{ record.content }}
+        
+        {{ record.body }}
+
+    {% endif %}
+
+{% endblock main %}
