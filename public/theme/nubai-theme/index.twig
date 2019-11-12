@@ -6,13 +6,9 @@
 
         <h1>{{ record.title }}</h1>
         
-        {{ menu('mymain', 'partials/_menu_mymain.twig') }}
+        {#{{ paths.files }}{{ record.logotipo_small }}#}
 
-        {{ record.teaser }}
-
-        {{ record.content }}
-        
-        {{ record.body }}
+        {{ record.maintext }}
 
     {% endif %}
 

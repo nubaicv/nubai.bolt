@@ -1,0 +1,14 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    {% for record in records %}
+        <div class="page-preview">
+            <a href="/{{ record.slug }}">
+                <h2 class="page-title">{{ record.title }}</h2>
+            </a>
+                <p>Publicado por: <em>{{ record.user.displayname }}</em></p>
+                {% include 'partials/_recordfooter.twig' with { 'record': record } %}
+        </div>
+    {% endfor %}
+    {# {{ dump(records) }} #}
+{% endblock main %}

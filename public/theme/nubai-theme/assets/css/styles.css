@@ -34,12 +34,18 @@ a#logotipo {
     height: 48px;
     background-position: 0px 0px;
     background-repeat: no-repeat;
-    background-image: url("http://0.0.0.0:8000/files/nubai-new-logo-small.png");
 }
 
 div#section_center {
     background-color: white;
     padding: 4px;
+}
+
+div.page-preview {
+    padding: 4px 6px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    background-color: #ccc;
 }
 
 aside {
@@ -60,7 +66,6 @@ footer {
     a#logotipo {
         width: 200px;
         height: 53px;
-        background-image: url("http://0.0.0.0:8000/files/nubai-new-logo-medium.png");
     }
 }
 

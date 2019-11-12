@@ -20,7 +20,7 @@ payoff: Learning how to work with BOLD
 # Don't edit the provided templates directly, because they _will_ get updated
 # in next releases. If you wish to modify a default theme, copy its folder, and
 # change the name here accordingly.
-theme: skeleton_1
+theme: nubai-theme
 
 # The locale that'll be used by the application. If no locale is set the
 # fallback locale is 'en_GB'. For available options, see:

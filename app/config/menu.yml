@@ -29,20 +29,12 @@ mymain:
     - label: Home
       path: /
       class: first
-    - label: Products
-      path: /page/products
+    - label: Pages
+      path: /pages
       submenu:
-          - label: Electrodomesticos
-            path: /
-          - label: Alimentos
-            path: /
-          - label: Mobiliarios
-            path: /
-            title: Os nossos mobiliarios
-            class: last_submenu
-    - label: About us
-      title: Everything about our company
-      path: /page/about
-    - label: Contact
-      title: Our contact page
-      path: /page/contact
+          - label: About Us
+            title: Everything about our company
+            path: /page/about
+          - label: Contact Us
+            title: Our contact page
+            path: /page/contact

@@ -17,13 +17,13 @@ homepage:
 #                shown on the homepage of the website, as the name implies. To change the
 #                <em><strong>name</strong></em> of the site, as is shown in the header, and the tab
 #                in the webbrowser, edit <code>sitename:</code> in the configuration file.
-#        logo:
+#        logotipo:
 #            type: image
-#            placeholder: https://source.unsplash.com/1920x640/?cityscape,landscape,nature/__random__
-        teaser:
-            type: html
-            height: 150px
-        content:
+#            placeholder:
+#        teaser:
+#            type: html
+#            height: 150px
+        maintext:
             type: html
             height: 300px
 #        contentlink:
@@ -74,6 +74,8 @@ pages:
         template:
             type: templateselect
             filter: '*.twig'
+    record_template: page-record.twig
+    listing_template: page-home.twig
     taxonomy: [ groups ]
     recordsperpage: 20
 

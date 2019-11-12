@@ -1,0 +1,6 @@
+{# This file is inserted as the 'footer' of each listed record. #}
+<p class="meta">
+    {% if record.editlink() %}
+        <span class="edit-link"><a href="{{ record.editlink() }}"><strong>Editar</strong></a></span>
+    {% endif %}
+</p>
