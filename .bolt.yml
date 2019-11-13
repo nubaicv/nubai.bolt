@@ -1,2 +1,5 @@
 extensions:
-    - Bundle\Site\CustomisationExtension
+    - Bundle\Nubai\CustomisationExtension
+
+application: Bundle\Nubai\Application
+

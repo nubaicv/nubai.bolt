@@ -1,6 +1,6 @@
 <?php
 
-namespace Bundle\Site;
+namespace Bundle\Nubai;
 
 use Bolt\Extension\SimpleExtension;
 
@@ -15,6 +15,16 @@ use Bolt\Extension\SimpleExtension;
  *
  * For more information on building bundles see https://docs.bolt.cm/extensions
  */
-class CustomisationExtension extends SimpleExtension
-{
+class CustomisationExtension extends SimpleExtension {
+
+    protected function registerTwigFilters() {
+        
+        return ['shout' => 'shoutFilter'];
+    }
+    
+    public function shoutFilter($text) {
+        
+        return strtoupper($text) . '!!';
+    }
+
 }

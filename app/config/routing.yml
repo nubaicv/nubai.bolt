@@ -54,7 +54,10 @@ contentlisting:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
-
+helloworldpage:
+    path: /hello-world
+    defaults:
+        _controller: controller.frontend:helloWorld
 
 # ------------------------------------------------------------------------------
 # Routes examples:
