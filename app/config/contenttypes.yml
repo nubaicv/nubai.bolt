@@ -24,8 +24,10 @@ homepage:
 #            type: html
 #            height: 150px
         maintext:
+            label: Texto principal
             type: html
-            height: 300px
+            height: 200px
+            postfix: "Use isto para..."
 #        contentlink:
 #            type: text
 #            label: Link
@@ -78,6 +80,42 @@ pages:
     listing_template: page-home.twig
     taxonomy: [ groups ]
     recordsperpage: 20
+    icon_many: "fa:sticky-note"
+    icon_one: "fa:sticky-note"
+
+
+products:
+    name: Produtos
+    singular_name: Produto
+    slug: products
+    singular_slug: product
+    fields:
+        title:
+            label: Nome do produto
+            type: text
+            class: large
+            required: true
+        Description:
+            label: Descricao completa do produto
+            type: html
+            height: 200px
+            required: true
+        Images:
+            label: Imagens
+            type: imagelist
+            upload: file/products
+        slug:
+            type: slug
+            uses: title
+    recordsperpage: 20
+    record_template: product-record.twig
+    listing_template: product-home.twig
+    listing_records: 12
+    searchable: true
+    default_status: draft
+    icon_many: "fa:product-hunt"
+    icon_one: "fa:product-hunt"
+    
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a

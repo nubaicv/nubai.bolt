@@ -1,0 +1,12 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    {% for record in records %}
+        <div class="product-preview">
+            <a href="/{{ record.contenttype.singular_slug }}/{{ record.slug }}">
+                <h2 class="page-title">{{ record.title }}</h2>
+            </a>
+        </div>
+    {% endfor %}
+    {#{{ dump(records) }}#}
+{% endblock main %}

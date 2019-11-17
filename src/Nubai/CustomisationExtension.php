@@ -11,10 +11,10 @@ class CustomisationExtension extends SimpleExtension {
 
     protected function registerTwigFilters() {
         
-        return ['shout' => 'shoutFilter'];
+        return ['shout' => 'shoutFiltera'];
     }
     
-    public function shoutFilter($text) {
+    public function shoutFiltera($text) {
         
         return strtoupper($text) . '!!';
     }

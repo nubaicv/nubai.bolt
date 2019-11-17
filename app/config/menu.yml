@@ -38,3 +38,5 @@ mymain:
           - label: Contact Us
             title: Our contact page
             path: /page/contact
+    - label: Products
+      path: /products

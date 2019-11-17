@@ -20,7 +20,16 @@ use Symfony\Component\HttpFoundation\Response as Response;
 class FrontendController extends BoltController {
 
     public function helloWorld(Request $request) {
-        return new Response('<h1>Hello World!<h1>');
+
+        $context = [
+            'data' => [
+                'title' => 'My title',
+                'text1' => 'O primeiro texto',
+                'text2' => 'O segunto texto',
+            ]
+        ];
+
+        return $this->render('mytemplate.twig', $context);
     }
 
 }
