@@ -42,15 +42,16 @@
                             {{ menu('mymain', 'partials/_menu_mymain.twig') }}
                         </div>
                         
-                        <div id="main-content" class="col-md-12">
+                        <div id="main-content" class="col-md-9 col-md-push-3">
                         {% block main %}
                         {% endblock main %}
                         </div>
                         
-                        
+                        <div id="aside-wrapper" class="col-md-3 col-md-pull-9">
+                            {{ include('partials/_aside.twig') }}
+                        </div>
 
                     </div>
-                            {{ include('partials/_aside.twig') }}
 
                 {% endblock body %}
                 

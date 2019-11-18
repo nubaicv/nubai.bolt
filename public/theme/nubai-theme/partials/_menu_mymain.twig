@@ -1,4 +1,4 @@
-<ul>
+<ul id="nav-main">
 {% for item in menu %}
     <li class="{{ item|current ? ' active' }}">
         <a href="{{ item.link }}" {% if item.title is defined %}title="{{ item.title|escape }}"{% endif %}>{{ item.label }}</a>

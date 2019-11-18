@@ -1,11 +1,13 @@
 <!-- Header -->
-<header>
-        <div id="logotipo-wrapper">
-            <a id="logotipo" href="/"></a>
-        </div>
-        {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
-        {#<h2><a href="{{ path('homepage') }}">{{ config.get('general/sitename') }}</a></h2>
-        {% if config.get('general/payoff') %}
-            <p>{{ config.get('general/payoff') }}</p>
-        {% endif %}#}
+<header class="row">
+    <div id="logotipo-wrapper" class="col-md-4">
+        <a id="logotipo" href="/"></a>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+    {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
+    {#<h2><a href="{{ path('homepage') }}">{{ config.get('general/sitename') }}</a></h2>
+    {% if config.get('general/payoff') %}
+        <p>{{ config.get('general/payoff') }}</p>
+    {% endif %}#}
 </header>

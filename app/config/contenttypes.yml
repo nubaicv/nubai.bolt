@@ -94,6 +94,7 @@ products:
             label: Nome do produto
             type: text
             class: large
+            group: geral
             required: true
         Description:
             label: Descricao completa do produto
@@ -103,7 +104,7 @@ products:
         Images:
             label: Imagens
             type: imagelist
-            upload: file/products
+            upload: /products
         slug:
             type: slug
             uses: title
@@ -112,10 +113,53 @@ products:
     listing_template: product-home.twig
     listing_records: 12
     searchable: true
-    default_status: draft
+    default_status: published
+    relations:
+        subcategories:
+            multiple: false
+            label: Selecione a subcategoria do produto
+            order: -id
     icon_many: "fa:product-hunt"
     icon_one: "fa:product-hunt"
     
+
+categories:
+    name: Categorias
+    singular_name: Categoria
+    slug: categories
+    singular_slug: category
+    fields:
+        name:
+            label: Nome da categoria
+            type: text
+            class: large
+            required: true
+    viewless: true
+    default_status: published
+    
+subcategories:
+    name: Subcategorias
+    singular_name: Subcategoria
+    slug: subcategories
+    singular_slug: subcategory
+    fields:
+        name:
+            label: Nome da subcategoria
+            type: text
+            class: large
+            required: true
+        slug:
+            type: slug
+            uses: name
+    viewless: false
+    default_status: published
+    record_template: product-by-subcategory.twig
+    listing_template: notfound.twig
+    relations:
+        categories:
+            multiple: false
+            label: Selecione a categoria
+            order: -id
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a

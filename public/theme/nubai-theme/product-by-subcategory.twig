@@ -1,8 +1,12 @@
 {% extends 'partials/_master_products.twig' %}
 
 {% block main %}
+
+    {% set ids = record.relation.products|join(" || ") %}
+    {% setcontent relatedrecords = 'products' where { id: ids } allowpaging limit 6 %}
+    
     <div>
-        {% for product in records %}
+        {% for product in relatedrecords %}
             <div class="product-preview">
                 <a href="/{{ product.contenttype.singular_slug }}/{{ product.slug }}">
                     <h3 class="page-title">{{ product.title }}</h3>
@@ -12,17 +16,10 @@
                         {% endif %}
                     {% endfor %}
                 </a>
-                {% set relatedrecords = product.related() %}
-                {% if relatedrecords is not empty %}
-                    <p>
-                        {% for related in relatedrecords %}
-                            <a href="{{ related.link }}">/{{ related.title }}/</a>
-                        {% endfor %}
-                    </p>
-                {% endif %}
-                {{ include('partials/_recordfooter.twig') }}                
+                {{ include('partials/_recordfooter.twig') }}
             </div>
         {% endfor %}
     </div>
-    {{ dump(records) }}
+
+    {{ dump(record) }}
 {% endblock main %}

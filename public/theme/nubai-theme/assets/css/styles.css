@@ -13,6 +13,10 @@ header, aside, footer, div {
     margin: 0;
 }
 
+.width100 {
+    width: 100%;
+}
+
 body {
     background-color: black;
     margin: 0;
@@ -21,7 +25,7 @@ body {
 
 header {
     color: white;
-    padding: 20px 10px;
+    padding: 20px 4px;
     background-color: #4466bd;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -36,21 +40,33 @@ a#logotipo {
     background-repeat: no-repeat;
 }
 
+ul#nav-main {
+    list-style-type: none;
+    padding: 0;
+}
+
 div#section_center {
     background-color: white;
     padding: 4px;
 }
 
 div.page-preview {
-    padding: 4px 6px;
-    margin-top: 6px;
-    margin-bottom: 4px;
     background-color: #ccc;
+}
+
+div.product-preview {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #ccc;
+    margin-bottom: 2px;
+    padding: 2px;
+    overflow: hidden;
+    margin-bottom: 12px;
 }
 
 aside {
     background-color: gray;
-    padding: 4px;
 }
 
 footer {
@@ -59,7 +75,11 @@ footer {
     padding: 4px;
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    div.product-preview {
+        width: 32%;
+    }
+}
 
 @media (min-width: 992px) {
 
@@ -67,7 +87,15 @@ footer {
         width: 200px;
         height: 53px;
     }
+    
+    div.product-preview {
+        width: 24%;
+    }
 }
 
 @media (min-width: 1200px) {
 }
+
+/*[class|=col] {
+    border: 1px dotted #002b36;
+}*/

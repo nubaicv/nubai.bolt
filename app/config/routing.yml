@@ -86,14 +86,19 @@ helloworldpage:
 
 # Example override for a specific contenttype
 
-#pagebinding:
-#    path: /{slug}
+pagebinding:
+    path: /{slug}
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+    contenttype: pages
+
+#subcategorybinding:
+#    path: /products/subcategory/{slug}
 #    defaults:
 #        _controller: controller.frontend:record
-#        contenttypeslug: page
-#    contenttype: pages
-
-
+#        contenttypeslug: subcategory
+#    contenttype: subcategories
 
 # Example single record override
 
