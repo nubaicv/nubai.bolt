@@ -3,7 +3,7 @@
 {% block main %}
 
     {% set ids = record.relation.products|join(" || ") %}
-    {% setcontent relatedrecords = 'products' where { id: ids } allowpaging limit 6 %}
+    {% setcontent relatedrecords = 'products' where { id: ids } allowpaging limit 12 %}
     
     <div>
         {% for product in relatedrecords %}
@@ -19,7 +19,7 @@
                 {{ include('partials/_recordfooter.twig') }}
             </div>
         {% endfor %}
+        {{ pager('products') }}
     </div>
 
-    {{ dump(record) }}
 {% endblock main %}

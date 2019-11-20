@@ -54,11 +54,16 @@ contentlisting:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
-helloworldpage:
-    path: /hello-world
+loginpage:
+    path: /login
     defaults:
-        _controller: controller.frontend:helloWorld
+        _controller: controller.frontend:login
 
+logoutpage:
+    path: /logout
+    defaults:
+        _controller: controller.frontend:logout
+        
 # ------------------------------------------------------------------------------
 # Routes examples:
 

@@ -40,3 +40,7 @@ mymain:
             path: /page/contact
     - label: Products
       path: /products
+    - label: Login
+      path: /login
+    - label: Logout
+      path: /logout

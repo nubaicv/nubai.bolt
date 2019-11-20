@@ -8,7 +8,7 @@
                     <h3 class="page-title">{{ product.title }}</h3>
                     {% for image in product.images %}
                         {% if loop.first %}
-                            <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}" class="width100" />
+                            <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}" class="width100">
                         {% endif %}
                     {% endfor %}
                 </a>
@@ -23,6 +23,7 @@
                 {{ include('partials/_recordfooter.twig') }}                
             </div>
         {% endfor %}
+        {{ pager(template = 'partials/_sub_pager.twig') }}
     </div>
-    {{ dump(records) }}
+    
 {% endblock main %}

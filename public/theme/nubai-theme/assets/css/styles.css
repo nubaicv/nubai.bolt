@@ -59,7 +59,6 @@ div.product-preview {
     display: inline-block;
     vertical-align: top;
     background-color: #ccc;
-    margin-bottom: 2px;
     padding: 2px;
     overflow: hidden;
     margin-bottom: 12px;
@@ -96,6 +95,6 @@ footer {
 @media (min-width: 1200px) {
 }
 
-/*[class|=col] {
+[class|=col] {
     border: 1px dotted #002b36;
-}*/
+}
