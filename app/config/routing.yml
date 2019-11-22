@@ -98,12 +98,12 @@ pagebinding:
         contenttypeslug: page
     contenttype: pages
 
-#subcategorybinding:
-#    path: /products/subcategory/{slug}
-#    defaults:
-#        _controller: controller.frontend:record
-#        contenttypeslug: subcategory
-#    contenttype: subcategories
+subcategorybinding:
+    path: /products/subcategory/{slug}
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: subcategory
+    contenttype: subcategories
 
 # Example single record override
 

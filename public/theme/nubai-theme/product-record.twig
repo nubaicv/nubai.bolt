@@ -24,7 +24,8 @@
                 <h2>{{ product.price }}$00 ECV</h2>
                 <p>Em stock: {{ product.stock }}</p>
             {% endif %}
+            {{ include('partials/_recordfooter.twig') }}
         </div>
     </div>
-    {{ dump(product) }}
+    {#{{ dump(product) }}#}
 {% endblock main %}

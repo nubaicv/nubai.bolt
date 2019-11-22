@@ -18,9 +18,10 @@
                 </a>
                 {% if product.discount != 0 %}
                     <span style="color: gray; text-decoration: line-through">{{ product.price }}$00 ECV</span>
-                    <h3>{{ product.price - (product.price * product.discount / 100) }}$00 ECV</h3>
+                    <h2>{{ product.price - (product.price * product.discount / 100) }}$00 ECV</h2>
+                    <span style="background-color: red; color: white; padding: 2px 3px"><strong>Poupa {{ product.discount }}%</strong></span>
                 {% else %}
-                    <h3>{{ product.price }}$00 ECV</h3>
+                    <h2>{{ product.price }}$00 ECV</h2>
                 {% endif %}
                 {{ include('partials/_recordfooter.twig') }}
             </div>

@@ -85,11 +85,16 @@ products:
     slug: products
     singular_slug: product
     fields:
+        code:
+            label: Código do produto
+            type: text
+            class: large
+            group: geral
+            required: true
         title:
             label: Nome do produto
             type: text
             class: large
-            group: geral
             required: true
         Description:
             label: Descricao completa do produto
@@ -102,7 +107,7 @@ products:
             upload: /products
         slug:
             type: slug
-            uses: title
+            uses: code
         price:
             label: Preco
             type: integer
