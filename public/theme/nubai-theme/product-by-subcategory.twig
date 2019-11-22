@@ -2,20 +2,26 @@
 
 {% block main %}
 
-    {% set ids = record.relation.products|join(" || ") %}
-    {% setcontent relatedrecords = 'products' where { id: ids } allowpaging limit 12 %}
+    {% set ids = subcategory.relation.products|join(" || ") %}
+    {% setcontent relatedproducts = 'products' where { id: ids } allowpaging limit 12 %}
     
     <div>
-        {% for product in relatedrecords %}
+        {% for product in relatedproducts %}
             <div class="product-preview">
                 <a href="/{{ product.contenttype.singular_slug }}/{{ product.slug }}">
-                    <h3 class="page-title">{{ product.title }}</h3>
                     {% for image in product.images %}
                         {% if loop.first %}
-                            <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}" class="width100" />
+                            <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}" />
                         {% endif %}
                     {% endfor %}
+                    <h3 class="page-title">{{ product.title }}</h3>
                 </a>
+                {% if product.discount != 0 %}
+                    <span style="color: gray; text-decoration: line-through">{{ product.price }}$00 ECV</span>
+                    <h3>{{ product.price - (product.price * product.discount / 100) }}$00 ECV</h3>
+                {% else %}
+                    <h3>{{ product.price }}$00 ECV</h3>
+                {% endif %}
                 {{ include('partials/_recordfooter.twig') }}
             </div>
         {% endfor %}

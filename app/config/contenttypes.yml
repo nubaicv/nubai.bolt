@@ -64,12 +64,6 @@ pages:
         slug:
             type: slug
             uses: title
-#        image:
-#            type: image
-#            placeholder: https://source.unsplash.com/1280x768/?business,workplace/__random__
-#        teaser:
-#            type: html
-#            height: 150px
         body:
             type: html
             height: 300px
@@ -80,6 +74,7 @@ pages:
     listing_template: page-home.twig
     taxonomy: [ groups ]
     recordsperpage: 20
+    show_on_dashboard: false
     icon_many: "fa:sticky-note"
     icon_one: "fa:sticky-note"
 
@@ -108,12 +103,26 @@ products:
         slug:
             type: slug
             uses: title
+        price:
+            label: Preco
+            type: integer
+            class: large
+            group: Precos e stock
+            required: true
+        discount:
+            label: Taxa de desconto
+            type: integer
+        stock:
+            label: Disponibilidade de stock
+            type: integer
+            required: true
     recordsperpage: 20
     record_template: product-record.twig
     listing_template: product-home.twig
     listing_records: 12
     searchable: true
     default_status: published
+    sort: -datecreated
     relations:
         subcategories:
             multiple: false
@@ -136,6 +145,7 @@ categories:
             required: true
     viewless: true
     default_status: published
+    sort: -datecreated
     
 subcategories:
     name: Subcategorias
@@ -155,6 +165,7 @@ subcategories:
     default_status: published
     record_template: product-by-subcategory.twig
     listing_template: notfound.twig
+    sort: -datecreated
     relations:
         categories:
             multiple: false

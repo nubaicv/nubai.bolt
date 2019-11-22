@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="row">
-    
+
     <div class="col-md-4"><h2>Footer section</h2></div>
     <div class="col-md-4"></div>
     <div class="col-md-4"></div>
@@ -8,3 +8,12 @@
 </footer>
 
 <script src="{{ asset("assets/js/jquery-3.4.1.js", "theme") }}"></script>
+<script src="{{ asset("assets/js/lightslider.min.js", "theme") }}"></script>
+<script type="text/javascript">
+    $('#lightSlider').lightSlider({
+        item: 1,
+        loop: true,
+        prevHtml: '<img src="{{ paths.files }}l_arrow.png" alt="Previous">',
+        nextHtml: '<img src="{{ paths.files }}r_arrow.png" alt="Next">'
+    });
+</script>

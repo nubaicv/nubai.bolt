@@ -13,8 +13,12 @@ header, aside, footer, div {
     margin: 0;
 }
 
-.width100 {
+img {
     width: 100%;
+}
+
+a {
+    color: black;
 }
 
 body {
@@ -58,10 +62,10 @@ div.product-preview {
     width: 48%;
     display: inline-block;
     vertical-align: top;
-    background-color: #ccc;
-    padding: 2px;
+    background-color: #eee;
+    padding: 4px;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 aside {
@@ -95,6 +99,11 @@ footer {
 @media (min-width: 1200px) {
 }
 
-[class|=col] {
-    border: 1px dotted #002b36;
+.text-center {
+    text-align: center;
 }
+
+/*[class|=col] {
+    border: 1px dotted #002b36;
+}*/
+

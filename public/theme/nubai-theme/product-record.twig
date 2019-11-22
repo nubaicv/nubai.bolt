@@ -1,4 +1,30 @@
 {% extends 'partials/_master_products.twig' %}
 
 {% block main %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>{{ product.title }}</h1>
+        </div>
+        <div class="col-sm-6 col-lg-5">
+            <ul id="lightSlider">
+                {% for image in product.images %}
+                    <li>
+                        <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}">
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-sm-6 col-lg-4">{{ product.description }}</div>
+        <div id="numbers-box" class="col-sm-12 col-lg-3">
+            {% if product.discount != 0 %}
+                <span style="color: gray; text-decoration: line-through">{{ product.price }}$00 ECV</span> <span style="color: red">- {{ product.discount }}%</span>
+                <h2>{{ product.price - (product.price * product.discount / 100) }}$00 ECV</h2>
+                <p>Em stock: {{ product.stock }}</p>
+            {% else %}
+                <h2>{{ product.price }}$00 ECV</h2>
+                <p>Em stock: {{ product.stock }}</p>
+            {% endif %}
+        </div>
+    </div>
+    {{ dump(product) }}
 {% endblock main %}
