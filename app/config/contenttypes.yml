@@ -178,6 +178,36 @@ subcategories:
             order: -id
 
 
+customers:
+    name: Clientes
+    singular_name: Cliente
+    slug: customers
+    singular_slug: customer
+    fields:
+        name:
+            label: Nome do cliente
+            type: text
+            variant: inline
+            group: Geral
+            readonly: true
+        surname:
+            label: Apelido
+            type: text
+            variant: inline
+            readonly: true
+        email:
+            label: Email
+            type: text
+            variant: inline
+            readonly: true
+        password:
+            label: Password
+            type: text
+            variant: inline
+            readonly: true
+    viewless: true
+    default_status: published
+    sort: -datecreated
 # Entries can be used for things like 'news' or 'blogpostings'. They have a
 # 'teaser', which can be used for a short blurb on listing-pages, allowing
 # visitors to click-through to the rest of the entry. It also has fields for an

@@ -63,7 +63,11 @@ logoutpage:
     path: /logout
     defaults:
         _controller: controller.frontend:logout
-        
+
+testingpage:
+    path: /testing
+    defaults:
+        _controller: controller.frontend:testing
 # ------------------------------------------------------------------------------
 # Routes examples:
 

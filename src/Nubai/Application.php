@@ -8,7 +8,7 @@
 
 namespace Bundle\Nubai;
 
-use Bolt\Application as Bolt;
+use Bolt\Application as Nubai;
 
 /**
  * Description of Application
@@ -16,7 +16,7 @@ use Bolt\Application as Bolt;
  * @author ricardo
  */
 
-class Application extends Bolt {
+class Application extends Nubai {
     
     public function initProviders() {
         

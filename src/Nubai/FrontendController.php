@@ -8,16 +8,17 @@
 
 namespace Bundle\Nubai;
 
-use Bolt\Controller\Frontend as BoltController;
+use Bolt\Controller\Frontend as NubaiController;
 use Symfony\Component\HttpFoundation\Request as Request;
 use Symfony\Component\HttpFoundation\Response as Response;
+use Bundle\Nubai\Storage\NubaiStorage;
 
 /**
  * Description of FrontendController
  *
  * @author ricardo
  */
-class FrontendController extends BoltController {
+class FrontendController extends NubaiController {
     
     
     /**
@@ -235,6 +236,18 @@ class FrontendController extends BoltController {
         ];
 
         return $this->render('mytemplate.twig', $data_to_template);
+    }
+    
+    public function testing(Request $request) {
+        
+        $repo = new NubaiStorage();
+        
+        $data_to_template = [
+            'title' => 'My title',
+            'repo' => $repo,
+        ];
+        
+        return $this->render('testing.twig', $data_to_template);
     }
 
 }
