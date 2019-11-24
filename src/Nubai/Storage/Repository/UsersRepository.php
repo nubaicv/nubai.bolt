@@ -2,16 +2,15 @@
 
 namespace Bundle\Nubai\Storage\Repository;
 
-use Bolt\Storage\Entity\Entity;
+use Bolt\Storage\Entity;
 use Bolt\Storage\Repository;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 /**
- * Description of CustomersRepository
- *
- * @author ricardo
+ * A Repository class that handles storage operations for the users table.
  */
-class CustomersRepository extends Repository {
+class UsersRepository extends Repository
+{
     private $userEntities = [];
 
     /**

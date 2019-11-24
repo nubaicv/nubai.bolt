@@ -189,23 +189,19 @@ customers:
             type: text
             variant: inline
             group: Geral
-            readonly: true
         surname:
             label: Apelido
             type: text
             variant: inline
-            readonly: true
         email:
             label: Email
             type: text
             variant: inline
-            readonly: true
         password:
             label: Password
             type: text
             variant: inline
-            readonly: true
-    viewless: true
+    viewless: false
     default_status: published
     sort: -datecreated
 # Entries can be used for things like 'news' or 'blogpostings'. They have a

@@ -11,7 +11,6 @@ namespace Bundle\Nubai;
 use Bolt\Controller\Frontend as NubaiController;
 use Symfony\Component\HttpFoundation\Request as Request;
 use Symfony\Component\HttpFoundation\Response as Response;
-use Bundle\Nubai\Storage\NubaiStorage;
 
 /**
  * Description of FrontendController
@@ -19,8 +18,7 @@ use Bundle\Nubai\Storage\NubaiStorage;
  * @author ricardo
  */
 class FrontendController extends NubaiController {
-    
-    
+
     /**
      * Controller for the "Homepage" route. Usually the front page of the website.
      *
@@ -29,7 +27,7 @@ class FrontendController extends NubaiController {
      * @return TemplateResponse
      */
     public function homepage(Request $request) {
-        
+
         // Codigo official do controlador homepage
         // ---------------------------------------------------------------------------------------------
         $homepage = $this->getOption('theme/homepage') ?: $this->getOption('general/homepage');
@@ -49,16 +47,11 @@ class FrontendController extends NubaiController {
             $globals['records'] = [$content->id => $content];
         }
         // ---------------------------------------------------------------------------------------------
-        
-        
-        
-        
-        
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
-        
+
         $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-        
+
         $data_to_template = [
             'template_data' => [
                 'loggedin' => $logged_in_message,
@@ -66,17 +59,15 @@ class FrontendController extends NubaiController {
                 'session_id' => $this->session()->getId(),
             ],
         ];
-        
-        
+
+
         // ---------------------------------------------------------------------------------------------
-        
-        
+
+
 
         return $this->render($template, $data_to_template, $globals);
     }
 
-    
-    
     /**
      * The listing page controller.
      *
@@ -86,7 +77,7 @@ class FrontendController extends NubaiController {
      * @return TemplateResponse
      */
     public function listing(Request $request, $contenttypeslug) {
-        
+
         // Codigo official do controlador listing
         // ---------------------------------------------------------------------------------------------
         $listingParameters = $this->getListingParameters($contenttypeslug);
@@ -96,20 +87,16 @@ class FrontendController extends NubaiController {
         $template = $this->templateChooser()->listing($contenttype);
 
         $globals = [
-            'records'        => $content,
+            'records' => $content,
             $contenttypeslug => $content,
-            'contenttype'    => $contenttype['name'],
+            'contenttype' => $contenttype['name'],
         ];
         // ---------------------------------------------------------------------------------------------
-        
-        
-        
-        
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
-        
+
         $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-        
+
         $data_to_template = [
             'template_data' => [
                 'loggedin' => $logged_in_message,
@@ -117,16 +104,14 @@ class FrontendController extends NubaiController {
                 'session_id' => $this->session()->getId(),
             ],
         ];
-        
-        
+
+
         // ---------------------------------------------------------------------------------------------
 
         return $this->render($template, $data_to_template, $globals);
     }
-    
-    
-    
-     /**
+
+    /**
      * Controller for a single record page, like '/page/about/' or '/entry/lorum'.
      *
      * @param Request $request         The request
@@ -136,7 +121,7 @@ class FrontendController extends NubaiController {
      * @return TemplateResponse
      */
     public function record(Request $request, $contenttypeslug, $slug = '') {
-        
+
         // Codigo official do controlador record
         // ---------------------------------------------------------------------------------------------
         $contenttype = $this->getContentType($contenttypeslug);
@@ -158,7 +143,7 @@ class FrontendController extends NubaiController {
         if (is_numeric($slug) && !$content) {
             $content = $this->getContent($contenttype['slug'], ['id' => $slug, 'returnsingle' => true]);
         }
-        
+
         if (!$content) {
             $this->abort(Response::HTTP_NOT_FOUND, "Page $contenttypeslug/$slug not found.");
 
@@ -171,19 +156,15 @@ class FrontendController extends NubaiController {
         $this->app['edittitle'] = $content->getTitle();
 
         $globals = [
-            'record'                      => $content,
+            'record' => $content,
             $contenttype['singular_slug'] => $content,
         ];
         // ---------------------------------------------------------------------------------------------
-        
-        
-        
-        
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
-        
+
         $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-        
+
         $data_to_template = [
             'template_data' => [
                 'loggedin' => $logged_in_message,
@@ -191,26 +172,20 @@ class FrontendController extends NubaiController {
                 'session_id' => $this->session()->getId(),
             ],
         ];
-        
-        
+
+
         // ---------------------------------------------------------------------------------------------
 
         return $this->render($template, $data_to_template, $globals);
     }
-    
-    
-    
 
-    
-    
-    
     public function login(Request $request) {
-        
+
         $this->session()->set('customer_name', 'Ricardo Ponce');
-        
+
 
         $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-        
+
         $data_to_template = [
             'template_data' => [
                 'loggedin' => $logged_in_message,
@@ -221,14 +196,14 @@ class FrontendController extends NubaiController {
 
         return $this->render('mytemplate.twig', $data_to_template);
     }
-    
+
     public function logout(Request $request) {
-        
+
         $this->session()->invalidate();
-        
+
 
         $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-        
+
         $data_to_template = [
             'template_data' => [
                 'loggedin' => $logged_in_message,
@@ -237,16 +212,28 @@ class FrontendController extends NubaiController {
 
         return $this->render('mytemplate.twig', $data_to_template);
     }
-    
+
     public function testing(Request $request) {
+
+//        $repo = $this->storage()->setRepository('', '');
+        $repo = $this->storage()->getRepository('customers');
+
+//        $qb = $this->storage()->createQueryBuilder();
+
+        $customer = $repo->find(1);
+
+        if ($customer) {
+            $name = $customer->getName();
+        }
+
         
-        $repo = new NubaiStorage();
-        
+
         $data_to_template = [
             'title' => 'My title',
             'repo' => $repo,
+            'userdb' => $name,
         ];
-        
+
         return $this->render('testing.twig', $data_to_template);
     }
 
