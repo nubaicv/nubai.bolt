@@ -2,12 +2,13 @@
 
 namespace Bundle\Nubai\Storage\Entity;
 
-use Bolt\Storage\Entity\Entity;
+use Bolt\Storage\Entity\Content;
+
 /**
  * Description of Customers
  *
  * @author ricardo
  */
-class Customers extends Entity {
+class Customers extends Content {
     //put your code here
 }

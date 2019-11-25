@@ -213,25 +213,21 @@ class FrontendController extends NubaiController {
         return $this->render('mytemplate.twig', $data_to_template);
     }
 
+// -------------------------------------------------------------------------
+
     public function testing(Request $request) {
-
-//        $repo = $this->storage()->setRepository('', '');
-        $repo = $this->storage()->getRepository('customers');
-
-//        $qb = $this->storage()->createQueryBuilder();
-
-        $customer = $repo->find(1);
-
-        if ($customer) {
-            $name = $customer->getName();
-        }
-
         
+        $repo = $this->storage()->getRepository('customers');
+        
+        $rows_count = $repo->count();
+        $peo = $repo->tirarseUnPeo();
 
         $data_to_template = [
-            'title' => 'My title',
-            'repo' => $repo,
-            'userdb' => $name,
+            'template_data' => [
+                'title' => 'My title',
+                'rows_count' => $rows_count,
+                'peo' => $peo,
+            ]
         ];
 
         return $this->render('testing.twig', $data_to_template);

@@ -101,6 +101,16 @@ products:
             type: html
             height: 200px
             required: true
+#        Category:
+#            label: Categoria
+#            type: select
+#            values: categories/id, name
+#            sort: -id
+        Subcategory:
+            label: Subcategoria
+            type: select
+            values: subcategories/id, name
+            sort: -id
         Images:
             label: Imagens
             type: imagelist
@@ -184,11 +194,16 @@ customers:
     slug: customers
     singular_slug: customer
     fields:
+        customer_type:
+            label: Tipo de cliente
+            type: select
+            values: subcategories/name
+            group: geral
+            readonly: true
         name:
             label: Nome do cliente
             type: text
             variant: inline
-            group: Geral
         surname:
             label: Apelido
             type: text
@@ -201,7 +216,7 @@ customers:
             label: Password
             type: text
             variant: inline
-    viewless: false
+    viewless: true
     default_status: published
     sort: -datecreated
 # Entries can be used for things like 'news' or 'blogpostings'. They have a
