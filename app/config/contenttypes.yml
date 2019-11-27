@@ -138,11 +138,11 @@ products:
     searchable: true
     default_status: published
     sort: -datecreated
-    relations:
-        subcategories:
-            multiple: false
-            label: Selecione a subcategoria do produto
-            order: -id
+#    relations:
+#        subcategories:
+#            multiple: false
+#            label: Selecione a subcategoria do produto
+#            order: -id
     icon_many: "fa:product-hunt"
     icon_one: "fa:product-hunt"
     
@@ -173,6 +173,11 @@ subcategories:
             type: text
             class: large
             required: true
+        Category:
+            label: Categoria
+            type: select
+            values: categories/id, name
+            sort: -id
         slug:
             type: slug
             uses: name
@@ -181,44 +186,40 @@ subcategories:
     record_template: product-by-subcategory.twig
     listing_template: notfound.twig
     sort: -datecreated
-    relations:
-        categories:
-            multiple: false
-            label: Selecione a categoria
-            order: -id
+#    relations:
+#        categories:
+#            multiple: false
+#            label: Selecione a categoria
+#            order: -id
 
 
-customers:
-    name: Clientes
-    singular_name: Cliente
-    slug: customers
-    singular_slug: customer
-    fields:
-        customer_type:
-            label: Tipo de cliente
-            type: select
-            values: subcategories/name
-            group: geral
-            readonly: true
-        name:
-            label: Nome do cliente
-            type: text
-            variant: inline
-        surname:
-            label: Apelido
-            type: text
-            variant: inline
-        email:
-            label: Email
-            type: text
-            variant: inline
-        password:
-            label: Password
-            type: text
-            variant: inline
-    viewless: true
-    default_status: published
-    sort: -datecreated
+#customers:
+#    name: Clientes
+#    singular_name: Cliente
+#    fields:
+#        customertype:
+#            type: select
+#            values: [ particular, empresa ]
+#            group: geral
+#        name:
+#            label: Nome do cliente
+#            type: text
+#            variant: inline
+#        surname:
+#            label: Apelido
+#            type: text
+#            variant: inline
+#        email:
+#            label: Email
+#            type: text
+#            variant: inline
+#        password:
+#            label: Password
+#            type: text
+#            variant: inline
+#    viewless: true
+#    default_status: published
+#    sort: -datecreated
 # Entries can be used for things like 'news' or 'blogpostings'. They have a
 # 'teaser', which can be used for a short blurb on listing-pages, allowing
 # visitors to click-through to the rest of the entry. It also has fields for an

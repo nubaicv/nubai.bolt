@@ -2,8 +2,7 @@
 
 {% block main %}
 
-    {% set ids = subcategory.relation.products|join(" || ") %}
-    {% setcontent relatedproducts = 'products' where { id: ids } allowpaging limit 12 %}
+    {% setcontent relatedproducts = 'products' where { subcategory: subcategory.id } allowpaging limit 12 %}
     
     <div>
         {% for product in relatedproducts %}

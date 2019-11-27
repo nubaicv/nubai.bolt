@@ -3,7 +3,7 @@
 namespace Bundle\Nubai\Storage\Repository;
 
 use Bundle\Nubai\Storage\Entity\Customers;
-use Bolt\Storage\Repository\ContentRepository;
+use Bolt\Storage\Repository;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 /**
@@ -11,8 +11,10 @@ use Doctrine\DBAL\Query\QueryBuilder;
  *
  * @author ricardo
  */
-class CustomersRepository extends ContentRepository {
+class CustomersRepository extends Repository {
     
+    
+    // -----------------------------------------------------------------
     public function createQueryBuilder($alias = null) {
         
         if(empty($alias)) {
@@ -20,10 +22,5 @@ class CustomersRepository extends ContentRepository {
         }
         
         return parent::createQueryBuilder($alias);
-    }
-    
-    public function tirarseUnPeo() {
-        
-        return 'el peo';
     }
 }

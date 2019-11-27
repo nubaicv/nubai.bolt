@@ -217,16 +217,15 @@ class FrontendController extends NubaiController {
 
     public function testing(Request $request) {
         
-        $repo = $this->storage()->getRepository('customers');
-        
-        $rows_count = $repo->count();
-        $peo = $repo->tirarseUnPeo();
+        $customer_data = [
+            'forename' => 'Ricardo',
+        ];
+        $newcustomer = $this->storage()->create('customers', $customer_data);
 
         $data_to_template = [
             'template_data' => [
                 'title' => 'My title',
-                'rows_count' => $rows_count,
-                'peo' => $peo,
+                'peo' => $newcustomer,
             ]
         ];
 
