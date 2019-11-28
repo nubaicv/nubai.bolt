@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace Bundle\Nubai;
 
 use Bolt\Controller\Frontend as NubaiController;
@@ -50,14 +44,8 @@ class FrontendController extends NubaiController {
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
 
-        $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-
         $data_to_template = [
-            'template_data' => [
-                'loggedin' => $logged_in_message,
-                'attributes' => $this->session()->all(),
-                'session_id' => $this->session()->getId(),
-            ],
+            'session_data' => $this->session()->all(),
         ];
 
 
@@ -95,14 +83,9 @@ class FrontendController extends NubaiController {
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
 
-        $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
 
         $data_to_template = [
-            'template_data' => [
-                'loggedin' => $logged_in_message,
-                'attributes' => $this->session()->all(),
-                'session_id' => $this->session()->getId(),
-            ],
+            'session_data' => $this->session()->all(),
         ];
 
 
@@ -163,14 +146,8 @@ class FrontendController extends NubaiController {
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
 
-        $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-
         $data_to_template = [
-            'template_data' => [
-                'loggedin' => $logged_in_message,
-                'attributes' => $this->session()->all(),
-                'session_id' => $this->session()->getId(),
-            ],
+            'session_data' => $this->session()->all(),
         ];
 
 
@@ -178,86 +155,64 @@ class FrontendController extends NubaiController {
 
         return $this->render($template, $data_to_template, $globals);
     }
+    
+    public function members(Request $request) {
+        
+        if ($this->session()->has('customer') === true) {
+            
+            return $this->redirect('/');
+        }
+        
+        $data_to_template = [
+            'session_data' => $this->session()->all(),
+        ];
+
+        return $this->render('members.twig', $data_to_template);
+    }
 
     public function login(Request $request) {
 
-        $this->session()->set('customer_name', 'Ricardo Ponce');
+        $email = 'arianne.silva@nubai.com.cv';
+        $password = '1234';
 
+        if ($this->session()->has('customer') === true) {
 
-        $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
+            $this->session()->invalidate();
+            return $this->redirectToRoute('homepage');
+            
+        } else {
 
-        $data_to_template = [
-            'template_data' => [
-                'loggedin' => $logged_in_message,
-                'attributes' => $this->session()->all(),
-                'session_id' => $this->session()->getId(),
-            ],
-        ];
+            $repo = $this->storage()->getRepository('customers');
 
-        return $this->render('mytemplate.twig', $data_to_template);
+            $customer = $repo->verifyCredentials($email, $password);
+
+            if ($customer) {
+
+                $this->session()->set('customer', $customer[0]);
+            } else {
+                
+                return $this->redirectToRoute('homepage', ['from' => 'failedlogin']);
+            }
+        }
+
+        return $this->redirectToRoute('homepage');
     }
 
     public function logout(Request $request) {
 
         $this->session()->invalidate();
-
-
-        $logged_in_message = $this->session()->has('customer_name') ? "We are logged in!" : "We are NOT logged in.";
-
-        $data_to_template = [
-            'template_data' => [
-                'loggedin' => $logged_in_message,
-            ],
-        ];
-
-        return $this->render('mytemplate.twig', $data_to_template);
+        return $this->redirectToRoute('homepage', ['from' => 'logout']);
     }
 
 // -------------------------------------------------------------------------
 
     public function testing(Request $request) {
-
-//        $customer_data = [
-//            'datecreated' => new \DateTime,
-//            'datechanged' => new \DateTime,
-//            'forename' => 'Arianne',
-//            'surname' => 'Silva',
-//            'email' => 'arianne.silva@nubai.com.cv',
-//            'password' => '1234',
-//            'activated' => 0,
-//        ];
-//        
-//        $newcustomer = $this->storage()->create('customers', $customer_data);
-//        
-//        if ($this->storage()->save($newcustomer)) {
-//            $result = $newcustomer;
-//        } else {
-//            $result = false;
-//        }
-        // Code 2
-//        if ($newcustomer = $this->storage()->find('customers', 1)) {
-//            
-//            $newcustomer->setDatechanged(new \DateTime);
-//            $newcustomer->setPhone('325204');
-//            $this->storage()->delete($newcustomer);
-//            $result = $newcustomer;
-//        } else {
-//            
-//            $result = false;
-//        }
-
-        $repo = $this->storage()->getRepository('customers');
         
-        $email = 'arianne.silva@nubai.com.cv';
-        $password = '1234';
+        $data = $request;
         
-        $result = $repo->verifyCredentials($email, $password);
-
         $data_to_template = [
-            'template_data' => [
-                'title' => 'My title',
-                'peo' => $result,
-            ]
+            'title' => 'My title',
+            'data' => $data,
         ];
 
         return $this->render('testing.twig', $data_to_template);

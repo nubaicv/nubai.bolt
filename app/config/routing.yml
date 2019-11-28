@@ -54,6 +54,11 @@ contentlisting:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
+memberspage:
+    path: /members
+    defaults:
+        _controller: controller.frontend:members
+        
 loginpage:
     path: /login
     defaults:

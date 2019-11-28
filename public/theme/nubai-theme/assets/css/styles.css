@@ -36,6 +36,10 @@ header {
     border-bottom-color: #6684cf;
 }
 
+header div#header-div-right {
+    text-align: right;
+}
+
 a#logotipo {
     display: block;
     width: 180px;

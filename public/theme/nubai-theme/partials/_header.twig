@@ -1,10 +1,14 @@
 <!-- Header -->
 <header class="row">
-    <div id="logotipo-wrapper" class="col-md-4">
+    <div id="header-div-left" class="col-md-4">
         <a id="logotipo" href="/"></a>
     </div>
-    <div class="col-md-4"></div>
-    <div class="col-md-4"></div>
+    <div id="header-div-center" class="col-md-4"></div>
+    <div id="header-div-right" class="col-md-4">
+        {% if session_data is not empty %}
+            <span>{{ session_data.customer.email }}</span>
+        {% endif %}
+    </div>
     {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
     {#<h2><a href="{{ path('homepage') }}">{{ config.get('general/sitename') }}</a></h2>
     {% if config.get('general/payoff') %}

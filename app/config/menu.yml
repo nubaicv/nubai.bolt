@@ -29,18 +29,34 @@ mymain:
     - label: Home
       path: /
       class: first
-    - label: Pages
+    - label: Páginas
       path: /pages
       submenu:
-          - label: About Us
+          - label: Sobre
             title: Everything about our company
             path: /page/about
-          - label: Contact Us
+          - label: Contacto
             title: Our contact page
             path: /page/contact
-    - label: Products
+    - label: Produtos
       path: /products
-    - label: Login
+    - label: Iniciar sessão
       path: /login
-    - label: Logout
+
+mymainsession:
+    - label: Home
+      path: /
+      class: first
+    - label: Páginas
+      path: /pages
+      submenu:
+          - label: Sobre
+            title: Everything about our company
+            path: /page/about
+          - label: Contacto
+            title: Our contact page
+            path: /page/contact
+    - label: Produtos
+      path: /products
+    - label: Encerrar sessão
       path: /logout

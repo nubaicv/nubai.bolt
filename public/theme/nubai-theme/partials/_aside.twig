@@ -2,7 +2,9 @@
 <aside class="row">
     <div class="col-md-12">
         <h2>Aside section</h2>
-        {{ dump(template_data) }}
+        {% if session_data is not empty %}
+            {{ dump(session_data) }}
+        {% endif %}
     </div>
 </aside>
 <!-- End Sidebar -->

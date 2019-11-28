@@ -39,22 +39,26 @@
                     <div id="section_center" class="row">
 
                         <div id="nav-main-wrapper" class="col-md-12">
-                            {{ menu('mymain', 'partials/_menu_mymain.twig') }}
+                            {% if session_data is not empty %}
+                                {{ menu('mymainsession', 'partials/_menu_mymain.twig') }}
+                            {% else %}
+                                {{ menu('mymain', 'partials/_menu_mymain.twig') }}
+                            {% endif %}
                         </div>
-                        
+
                         <div id="main-content" class="col-md-12">
-                        {% block main %}
-                        {% endblock main %}
+                            {% block main %}
+                            {% endblock main %}
                         </div>
-                        
-                        
+
+
 
                     </div>
-                            {{ include('partials/_aside.twig') }}
+                    {{ include('partials/_aside.twig') }}
 
                 {% endblock body %}
-                
-                
+
+
 
                 {{ include('partials/_footer.twig') }}
 
