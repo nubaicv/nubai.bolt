@@ -216,16 +216,47 @@ class FrontendController extends NubaiController {
 // -------------------------------------------------------------------------
 
     public function testing(Request $request) {
+
+//        $customer_data = [
+//            'datecreated' => new \DateTime,
+//            'datechanged' => new \DateTime,
+//            'forename' => 'Arianne',
+//            'surname' => 'Silva',
+//            'email' => 'arianne.silva@nubai.com.cv',
+//            'password' => '1234',
+//            'activated' => 0,
+//        ];
+//        
+//        $newcustomer = $this->storage()->create('customers', $customer_data);
+//        
+//        if ($this->storage()->save($newcustomer)) {
+//            $result = $newcustomer;
+//        } else {
+//            $result = false;
+//        }
+        // Code 2
+//        if ($newcustomer = $this->storage()->find('customers', 1)) {
+//            
+//            $newcustomer->setDatechanged(new \DateTime);
+//            $newcustomer->setPhone('325204');
+//            $this->storage()->delete($newcustomer);
+//            $result = $newcustomer;
+//        } else {
+//            
+//            $result = false;
+//        }
+
+        $repo = $this->storage()->getRepository('customers');
         
-        $customer_data = [
-            'forename' => 'Ricardo',
-        ];
-        $newcustomer = $this->storage()->create('customers', $customer_data);
+        $email = 'arianne.silva@nubai.com.cv';
+        $password = '1234';
+        
+        $result = $repo->verifyCredentials($email, $password);
 
         $data_to_template = [
             'template_data' => [
                 'title' => 'My title',
-                'peo' => $newcustomer,
+                'peo' => $result,
             ]
         ];
 

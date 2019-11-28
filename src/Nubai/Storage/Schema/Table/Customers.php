@@ -32,7 +32,7 @@ class Customers extends BaseTable {
     
     protected function addIndexes() {
         
-        $this->table->addIndex(['email']);
+        $this->table->addUniqueIndex(['email']);
     }
     
     protected function setPrimaryKey() {
