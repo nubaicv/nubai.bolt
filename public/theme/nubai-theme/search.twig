@@ -1,4 +1,4 @@
-{% extends 'partials/_master.twig' %}
+{% extends 'partials/_master_products.twig' %}
 
 {% block main %}
 
@@ -21,11 +21,6 @@
         {% if block.content is defined %}
             {{ block.content }}
         {% endif %}
-
-        <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-            <input type="search" value="{{ search|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" >
-            <button type="submit">{{ __('general.phrase.search') }}</button>
-        </form>
 
         {% for record in records %}
             <article>

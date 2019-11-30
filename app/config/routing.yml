@@ -59,6 +59,13 @@ memberspage:
     defaults:
         _controller: controller.frontend:members
         
+homeproducts:
+    path: /products
+    defaults:
+        _controller: controller.frontend:listing
+    requirements:
+        contenttypeslug: controller.requirement:pluralContentTypes
+        
 loginpage:
     path: /login
     defaults:

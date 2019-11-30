@@ -3,6 +3,7 @@
 namespace Bundle\Nubai;
 
 use Bolt\Controller\Frontend as NubaiController;
+use Bolt\Helpers\Input;
 use Symfony\Component\HttpFoundation\Request as Request;
 use Symfony\Component\HttpFoundation\Response as Response;
 
@@ -160,7 +161,7 @@ class FrontendController extends NubaiController {
         
         if ($this->session()->has('customer') === true) {
             
-            return $this->redirect('/');
+            return $this->redirectToRoute('homeproducts');
         }
         
         $data_to_template = [
@@ -216,6 +217,104 @@ class FrontendController extends NubaiController {
         ];
 
         return $this->render('testing.twig', $data_to_template);
+    }
+    
+    public function search(Request $request, array $contenttypes = null) {
+        
+        // Codigo official do controlador search
+        // ---------------------------------------------------------------------------------------------
+        $q = '';
+        $context = __FUNCTION__;
+
+        if ($request->query->has('q')) {
+            $q = $request->query->get('q');
+        } elseif ($request->query->has($context)) {
+            $q = $request->query->get($context);
+        }
+        $q = Input::cleanPostedData($q, false);
+
+        $page = $this->app['pager']->getCurrentPage($context);
+        
+        $pageSize = $this->getOption('theme/search_results_records', false);
+        if ($pageSize === false && !$pageSize = $this->getOption('general/search_results_records', false)) {
+            $pageSize = $this->getOption('theme/listing_records', false) ?: $this->getOption('general/listing_records', 10);
+        }
+
+        $offset = ($page - 1) * $pageSize;
+        $limit = $pageSize;
+
+        // set-up filters from URL
+        $filters = [];
+        foreach ($request->query->all() as $key => $value) {
+            if (strpos($key, '_') > 0) {
+                list($contenttypeslug, $field) = explode('_', $key, 2);
+                if (isset($filters[$contenttypeslug])) {
+                    $filters[$contenttypeslug][$field] = $value;
+                } else {
+                    $contenttype = $this->getContentType($contenttypeslug);
+                    if (is_array($contenttype)) {
+                        $filters[$contenttypeslug] = [
+                            $field => $value,
+                        ];
+                    }
+                }
+            }
+        }
+        if (count($filters) == 0) {
+            $filters = null;
+        }
+
+        $isLegacy = $this->getOption('general/compatibility/setcontent_legacy', true);
+        if ($isLegacy) {
+            $result = $this->storage()->searchContent($q, $contenttypes, $filters, $limit, $offset);
+
+            /** @var \Bolt\Pager\PagerManager $manager */
+            $manager = $this->app['pager'];
+            $manager
+                ->createPager($context)
+                ->setCount($result['no_of_results'])
+                ->setTotalpages(ceil($result['no_of_results'] / $pageSize))
+                ->setCurrent($page)
+                ->setShowingFrom($offset + 1)
+                ->setShowingTo($offset + ($result ? count($result['results']) : 0));
+            ;
+
+            $manager->setLink($this->generateUrl('search', ['q' => $q]) . '&page_search=');
+        } else {
+            $appCt = array_keys($this->app['query.search_config']->getSearchableTypes());
+            $textQuery = '(' . join(',', $appCt) . ')/search';
+            $params = [
+                'filter' => $q,
+                'page'   => $page,
+                'limit'  => $pageSize,
+            ];
+            $searchResult = $this->getContent($textQuery, $params);
+
+            $result = [
+                'results' => $searchResult->getSortedResults(),
+                'query'   => [
+                    'sanitized_q' => strip_tags($q),
+                ],
+            ];
+        }
+
+        $globals = [
+            'records'      => $result['results'],
+            $context       => $result['query']['sanitized_q'],
+            'searchresult' => $result,
+        ];
+
+        $template = $this->templateChooser()->search();
+        
+        // ---------------------------------------------------------------------------------------------
+        // Meu codigo aqui
+        // ---------------------------------------------------------------------------------------------
+
+        $data_to_template = [
+            'session_data' => $this->session()->all(),
+        ];
+
+        return $this->render($template, $data_to_template, $globals);
     }
 
 }

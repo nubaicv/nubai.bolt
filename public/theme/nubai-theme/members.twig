@@ -1,4 +1,76 @@
 {% extends 'partials/_master.twig' %}
 
 {% block main %}
+    <style>
+
+        div#search-input-wrapper {
+            height: 100px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.search > div {
+            display: inline-block;
+            position: relative;
+        }
+
+        div.search > div:after {
+            content: "";
+            background-color: #4466bd;
+            width: 4px;
+            height: 20px;
+            position: absolute;
+            top: 30px;
+            right: 0px;
+            transform: rotate(135deg);
+            box-shadow: 1px 0 #6684cf;
+        }
+
+        div.search > div > input {
+            color: #4466bd;
+            font-size: 16px;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            border: 3px solid #4466bd;
+            border-radius: 35px;
+            outline: none;
+            box-shadow: 1px 0 #6684cf;
+        }
+
+        div.search > div > input::placeholder {
+            color: #efefef;
+            opacity: 0;
+        }
+
+        div.search > div > input::-ms-placeholder {
+            color: #efefef;
+        }
+
+        div.search > div > input::-ms-input-placeholder {
+            color: #efefef;
+        }
+
+        div.search > div > input:focus,
+        div.search > div > input:valid {
+            width: 100%;
+        }
+    </style>
+
+
+    <div id="search-input-wrapper">
+        <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
+            <div class="search">
+                <div>
+
+                    <input type="text" placeholder="Search . . ." required>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
 {% endblock main %}

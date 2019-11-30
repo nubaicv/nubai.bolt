@@ -12,7 +12,7 @@ database:
     password: admin
 
 # The name of the website
-sitename: Nubai, IT.
+sitename: Projeto Loja Online
 payoff: Learning how to work with BOLD
 
 # The theme to use.

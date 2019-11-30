@@ -7,9 +7,9 @@
         {# make sure we always display a proper title: The record's title if there is one, appended with the
            sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
         <title>
-            {%- if record.title is defined %}{{ record.title|striptags }} | {% endif -%}
-                {{ config.get('general/sitename') -}}
-                {% if record.title is not defined and config.get('general/payoff') %} | {{ config.get('general/payoff') }}{% endif -%}
+            {%- if record.title is defined %}{{ record.title|striptags }} | {{ config.get('general/sitename') }} {% endif -%}
+                {#{{ config.get('general/sitename') -}}#}
+                {% if record.title is not defined and config.get('general/payoff') %} Products | {{ config.get('general/sitename') }}{% endif -%}
             </title>
             <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css', 'theme') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/lightslider.css', 'theme') }}">
@@ -48,6 +48,23 @@
                         </div>
 
                         <div id="main-content" class="col-md-9 col-md-push-3">
+                            <div class="row" style="padding-bottom: 20px">
+                                <div class="col-sm-12 col-lg-4 col-lg-push-4">
+                                    <div id="search-input-wrapper">
+                                        <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
+                                            <div class="search">
+                                                <div>
+
+                                                    <input type="text" value="{{ search|default() }}" name="search" required>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-4 col-lg-pull-4"></div>
+                                <div class="col-sm-6 col-lg-4"></div>
+                            </div>
                             {% block main %}
                             {% endblock main %}
                         </div>
