@@ -40,7 +40,7 @@
                     <div id="section_center" class="row">
 
                         <div id="nav-main-wrapper" class="col-md-12">
-                            {% if session_data is not empty %}
+                            {% if session_data.customer is defined %}
                                 {{ menu('mymainsession', 'partials/_menu_mymain.twig') }}
                             {% else %}
                                 {{ menu('mymain', 'partials/_menu_mymain.twig') }}
@@ -48,20 +48,8 @@
                         </div>
 
                         <div id="main-content" class="col-md-9 col-md-push-3">
-                            <div class="row" style="padding-bottom: 20px">
-                                <div class="col-sm-12 col-lg-4 col-lg-push-4">
-                                    <div id="search-input-wrapper">
-                                        <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-                                            <div class="search">
-                                                <div>
-
-                                                    <input type="text" value="{{ search|default() }}" name="search" required>
-
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-4 col-lg-push-4"></div>
                                 <div class="col-sm-6 col-lg-4 col-lg-pull-4"></div>
                                 <div class="col-sm-6 col-lg-4"></div>
                             </div>

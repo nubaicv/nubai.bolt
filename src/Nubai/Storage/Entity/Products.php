@@ -11,5 +11,8 @@ use Bolt\Storage\Entity\Content;
  */
 class Products extends Content {
     
-    
+//    public function getFinalPrice() {
+//        
+//        return 4;
+//    }
 }

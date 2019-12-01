@@ -1,8 +1,18 @@
 <!-- Sidebar -->
 <aside class="row">
     <div class="col-md-12">
-        <h2>Aside section</h2>
-        {% if session_data is not empty %}
+        <div id="search-input-wrapper">
+            <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
+                <div class="search">
+                    <div>
+
+                        <input type="text" value="{{ search|default() }}" name="search" required>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% if session_data.customer is defined %}
             {{ dump(session_data) }}
         {% endif %}
     </div>

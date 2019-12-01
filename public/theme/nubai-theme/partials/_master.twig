@@ -39,7 +39,7 @@
                     <div id="section_center" class="row">
 
                         <div id="nav-main-wrapper" class="col-md-12">
-                            {% if session_data is not empty %}
+                            {% if session_data.customer is defined %}
                                 {{ menu('mymainsession', 'partials/_menu_mymain.twig') }}
                             {% else %}
                                 {{ menu('mymain', 'partials/_menu_mymain.twig') }}
@@ -51,10 +51,7 @@
                             {% endblock main %}
                         </div>
 
-
-
                     </div>
-                    {{ include('partials/_aside.twig') }}
 
                 {% endblock body %}
 

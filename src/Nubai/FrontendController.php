@@ -202,7 +202,7 @@ class FrontendController extends NubaiController {
     public function logout(Request $request) {
 
         $this->session()->invalidate();
-        return $this->redirectToRoute('homepage', ['from' => 'logout']);
+        return $this->redirectToRoute('memberspage');
     }
 
 // -------------------------------------------------------------------------
