@@ -28,16 +28,8 @@ a:hover {
     text-decoration: none;
 }
 
-header a,
-header a:visited,
-header a:focus,
-header a:hover {
-    color: white;
-    text-decoration: none;
-    outline: none;
-}
-
 body {
+    font-size: 14px;
     background-color: black;
     margin: 0;
     padding: 0;
@@ -52,11 +44,20 @@ header {
     border-bottom-color: #6684cf;
 }
 
+header a,
+header a:visited,
+header a:focus,
+header a:hover {
+    color: white;
+    text-decoration: none;
+    outline: none;
+}
+
 header div#header-div-1 {
 }
 
 header div#header-div-2 {
-    text-align: right;
+    text-align: center;
     padding: 12px;
 }
 
@@ -67,6 +68,7 @@ a#logotipo {
     display: block;
     width: 180px;
     height: 48px;
+    margin: 0 auto;
     background-position: 0px 0px;
     background-repeat: no-repeat;
 }
@@ -106,6 +108,15 @@ footer {
 }
 
 @media (min-width: 768px) {
+
+    a#logotipo {
+        margin: 0;
+    }
+
+    header div#header-div-2 {
+        text-align: right;
+    }
+
     div.product-preview {
         width: 32%;
     }
@@ -195,7 +206,7 @@ div.search > div > input:valid {
 /* --------------------------------------------- */
 
 
-/*[class|=col], div {
+[class|=col], div {
     border: 1px dotted #002b36;
-}*/
+}
 

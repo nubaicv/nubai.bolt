@@ -1,14 +1,14 @@
 <!-- Header -->
 <header class="row">
-    <div id="header-div-1" class="col-xs-6 col-sm-4">
+    <div id="header-div-1" class="col-sm-6 col-md-4">
         <a id="logotipo" href="/"></a>
     </div>
-    <div id="header-div-2" class="col-xs-6 col-sm-4 col-sm-push-4">
+    <div id="header-div-2" class="col-sm-6 col-md-4 col-md-push-4">
         {% if session_data.customer is defined %}
             <a href="javascript:void(0);">{{ session_data.customer.email }} <i class="fas fa-cog"></i></a>
         {% endif %}
     </div>
-    <div id="header-div-3" class="col-xs-12 col-sm-4 col-sm-pull-4">
+    <div id="header-div-3" class="col-sm-12 col-md-4 col-md-pull-4">
     </div>
     {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
     {#<h2><a href="{{ path('homepage') }}">{{ config.get('general/sitename') }}</a></h2>
