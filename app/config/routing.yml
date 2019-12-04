@@ -66,12 +66,12 @@ homeproducts:
     requirements:
         contenttypeslug: controller.requirement:pluralContentTypes
         
-loginpage:
+logincontroller:
     path: /login
     defaults:
         _controller: controller.frontend:login
 
-logoutpage:
+logoutcontroller:
     path: /logout
     defaults:
         _controller: controller.frontend:logout

@@ -1,5 +1,75 @@
 {% extends 'partials/_master.twig' %}
 
 {% block main %}
+    <div class="container">
+        {{ dump(estado) }}
+        <div class="row row-login-register">
+            <div class="col-xs-12 col-sm-6">
+                <form id="form-login" method="post" action="{{ path('logincontroller') }}">
+                    <div class="form-elements-wrapper">
+                        <h2>Iniciar sessão</h2>
+                        <fieldset>
+                            <legend><em>Introduz para iniciar sessão</em></legend>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" placeholder="Email">
+                            <label for="password">Password</label>
+                            <input id="password" type="password" name="password" placeholder="Palavra-passe">
+                        </fieldset>
+                        <div>
+                            <button type="submit">Entrar</button>
+                            <p><a href="javascript:void(0);">Esqueceste-te da tua palavra-passe?</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <form id="form-register" method="post">
+                    <div class="form-elements-wrapper">
+                        <h2>Regista-te</h2>
+                        <fieldset>
+                            <legend><em>Dados pessoais</em></legend>
+                            <label for="forename">Nome</label>
+                            <input id="forename" type="text" name="forename" placeholder="Nome pr&oacute;prio*" autocomplete="off">
+                            <label for="surname">Apelidos</label>
+                            <input id="surname" type="text" name="surname" placeholder="Apelidos*" autocomplete="off">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" placeholder="Email*" autocomplete="off">
+                            <label for="password">Palavra-passe nova</label>
+                            <input id="password" type="password" name="password" placeholder="Palavra-passe nova*">
+                        </fieldset><br>
+                        <fieldset>
+                            <legend><em>Dados de shipping (opcionais)</em></legend>
+                            <label for="address">Endere&ccedil;o</label>
+                            <textarea id="address" name="address" placeholder="Endere&ccedil;o de envio"></textarea>
+                            <label for="phone">Tel. fixo</label>
+                            <input id="phone" type="text" name="phone" placeholder="Telefone fixo">
+                            <label for="cell-phone">Telem&oacute;vel</label>
+                            <input id="cell-phone" type="text" name="cell-phone" placeholder="Telem&oacute;vel">
+                            <label for="company">Entidade (empresa ou loja)</label>
+                            <input id="company" type="text" name="company" placeholder="Entidade">
+                        </fieldset>
+                        <!--<div class="g-recaptcha" data-sitekey="6Lfv7TMUAAAAAGKCIiKLksTaWNDoHxqGUOzkydPt"></div>-->
+                        <div>
+                            <button type="submit">Registar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="wrapper-form-password-recovery" style="display: none">
+                <form id="form-password-recovery">
+                    <div class="form-elements-wrapper lefted-text">
+                        <h2>Recuperar a conta</h2>
+                        <fieldset>
+                            <p>Dê-nos o seu e-mail de inscrição e enviamos-lhe um link de recuperação único</p>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" placeholder="E-mail">
+                        </fieldset>
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{ dump(parameters) }}
+    </div>
 
 {% endblock main %}

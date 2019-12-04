@@ -41,7 +41,7 @@ mymain:
     - label: Produtos
       path: /products
     - label: Iniciar sessão
-      path: /login
+      path: /members
 
 mymainsession:
     - label: Home

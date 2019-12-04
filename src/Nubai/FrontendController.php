@@ -6,6 +6,7 @@ use Bolt\Controller\Frontend as NubaiController;
 use Bolt\Helpers\Input;
 use Symfony\Component\HttpFoundation\Request as Request;
 use Symfony\Component\HttpFoundation\Response as Response;
+use Bundle\Nubai\Storage\Session\SessionHandler;
 
 /**
  * Description of FrontendController
@@ -13,9 +14,15 @@ use Symfony\Component\HttpFoundation\Response as Response;
  * @author ricardo
  */
 class FrontendController extends NubaiController {
+    
+    
+    public function __construct() {
+        
+        session_set_save_handler(new SessionHandler());
+//        session_start();
+    }
 
     /**
-     * Controller for the "Homepage" route. Usually the front page of the website.
      *
      * @param Request $request
      *
@@ -156,32 +163,17 @@ class FrontendController extends NubaiController {
 
         return $this->render($template, $data_to_template, $globals);
     }
-    
-    public function members(Request $request) {
-        
-        if ($this->session()->has('customer') === true) {
-            
-            return $this->redirectToRoute('homeproducts');
-        }
-        
-        $data_to_template = [
-            'session_data' => $this->session()->all(),
-        ];
-
-        return $this->render('members.twig', $data_to_template);
-    }
 
     public function login(Request $request) {
-
-        $email = 'arianne.silva@nubai.com.cv';
-        $password = '1234';
 
         if ($this->session()->has('customer') === true) {
 
             $this->session()->invalidate();
             return $this->redirectToRoute('homepage');
-            
         } else {
+
+            $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
+            $password = $request->request->filter('password', null, FILTER_SANITIZE_STRING, [FILTER_FLAG_STRIP_LOW, FILTER_FLAG_STRIP_HIGH]);
 
             $repo = $this->storage()->getRepository('customers');
 
@@ -191,8 +183,8 @@ class FrontendController extends NubaiController {
 
                 $this->session()->set('customer', $customer[0]);
             } else {
-                
-                return $this->redirectToRoute('homepage', ['from' => 'failedlogin']);
+
+                return $this->redirectToRoute('memberspage', ['from' => 'failedlogin']);
             }
         }
 
@@ -205,22 +197,8 @@ class FrontendController extends NubaiController {
         return $this->redirectToRoute('memberspage');
     }
 
-// -------------------------------------------------------------------------
-
-    public function testing(Request $request) {
-        
-        $data = $request;
-        
-        $data_to_template = [
-            'title' => 'My title',
-            'data' => $data,
-        ];
-
-        return $this->render('testing.twig', $data_to_template);
-    }
-    
     public function search(Request $request, array $contenttypes = null) {
-        
+
         // Codigo official do controlador search
         // ---------------------------------------------------------------------------------------------
         $q = '';
@@ -234,7 +212,7 @@ class FrontendController extends NubaiController {
         $q = Input::cleanPostedData($q, false);
 
         $page = $this->app['pager']->getCurrentPage($context);
-        
+
         $pageSize = $this->getOption('theme/search_results_records', false);
         if ($pageSize === false && !$pageSize = $this->getOption('general/search_results_records', false)) {
             $pageSize = $this->getOption('theme/listing_records', false) ?: $this->getOption('general/listing_records', 10);
@@ -271,12 +249,12 @@ class FrontendController extends NubaiController {
             /** @var \Bolt\Pager\PagerManager $manager */
             $manager = $this->app['pager'];
             $manager
-                ->createPager($context)
-                ->setCount($result['no_of_results'])
-                ->setTotalpages(ceil($result['no_of_results'] / $pageSize))
-                ->setCurrent($page)
-                ->setShowingFrom($offset + 1)
-                ->setShowingTo($offset + ($result ? count($result['results']) : 0));
+                    ->createPager($context)
+                    ->setCount($result['no_of_results'])
+                    ->setTotalpages(ceil($result['no_of_results'] / $pageSize))
+                    ->setCurrent($page)
+                    ->setShowingFrom($offset + 1)
+                    ->setShowingTo($offset + ($result ? count($result['results']) : 0));
             ;
 
             $manager->setLink($this->generateUrl('search', ['q' => $q]) . '&page_search=');
@@ -285,27 +263,27 @@ class FrontendController extends NubaiController {
             $textQuery = '(' . join(',', $appCt) . ')/search';
             $params = [
                 'filter' => $q,
-                'page'   => $page,
-                'limit'  => $pageSize,
+                'page' => $page,
+                'limit' => $pageSize,
             ];
             $searchResult = $this->getContent($textQuery, $params);
 
             $result = [
                 'results' => $searchResult->getSortedResults(),
-                'query'   => [
+                'query' => [
                     'sanitized_q' => strip_tags($q),
                 ],
             ];
         }
 
         $globals = [
-            'records'      => $result['results'],
-            $context       => $result['query']['sanitized_q'],
+            'records' => $result['results'],
+            $context => $result['query']['sanitized_q'],
             'searchresult' => $result,
         ];
 
         $template = $this->templateChooser()->search();
-        
+
         // ---------------------------------------------------------------------------------------------
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
@@ -315,6 +293,45 @@ class FrontendController extends NubaiController {
         ];
 
         return $this->render($template, $data_to_template, $globals);
+    }
+
+    // -------------------------------------------------------------------------
+
+    public function testing(Request $request) {
+
+        $data = $request;
+
+        $data_to_template = [
+            'title' => 'My title',
+            'data' => $data,
+        ];
+
+        return $this->render('testing.twig', $data_to_template);
+    }
+
+    public function members(Request $request) {
+
+        if ($this->session()->has('customer') === true) {
+            
+            return $this->redirectToRoute('homeproducts');
+        }
+
+        $parameters = $request->request->all();
+
+        if (!empty($parameters) === true) {
+            $estado = 'Com parametros';
+        } else {
+            $estado = 'Sem parametros';
+        }
+
+
+        $data_to_template = [
+            'session_data' => $this->session()->all(),
+            'parameters' => $parameters,
+            'estado' => $estado,
+        ];
+
+        return $this->render('members.twig', $data_to_template);
     }
 
 }

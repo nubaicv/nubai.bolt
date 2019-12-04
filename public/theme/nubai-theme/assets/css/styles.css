@@ -206,6 +206,30 @@ div.search > div > input:valid {
 /* --------------------------------------------- */
 
 
+/* MEMBERS PAGE*/
+
+.row-login-register form fieldset input,
+.row-login-register form fieldset textArea {
+    width: 100%;
+    margin: 3px auto 3px;
+}
+
+.row-login-register form fieldset label {
+    display: none;
+}
+
+.row-login-register form fieldset {
+    border-width: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* --------------------------------------------- */
+
+
+
 [class|=col], div {
     border: 1px dotted #002b36;
 }
