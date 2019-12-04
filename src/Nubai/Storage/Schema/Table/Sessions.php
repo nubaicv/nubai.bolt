@@ -15,8 +15,8 @@ class Sessions extends BaseTable {
         
         $this->table->addColumn('sid', 'string', ['length' => 100]);
         $this->table->addColumn('sdata', 'string', ['notnull' => false]);
-        $this->table->addColumn('expires', 'datetime', ['notnull' => true]);
-        $this->table->addColumn('ip', 'string', ['notnull' => true, 'length' => 50]);
+        $this->table->addColumn('expires', 'datetime', ['notnull' => false]);
+        $this->table->addColumn('ip', 'string', ['notnull' => false, 'length' => 50]);
     }
     
     protected function addIndexes() {

@@ -6,7 +6,6 @@ use Bolt\Controller\Frontend as NubaiController;
 use Bolt\Helpers\Input;
 use Symfony\Component\HttpFoundation\Request as Request;
 use Symfony\Component\HttpFoundation\Response as Response;
-use Bundle\Nubai\Storage\Session\SessionHandler;
 
 /**
  * Description of FrontendController
@@ -15,11 +14,10 @@ use Bundle\Nubai\Storage\Session\SessionHandler;
  */
 class FrontendController extends NubaiController {
     
-    
+    private $prueba = 'po';
+
     public function __construct() {
         
-        session_set_save_handler(new SessionHandler());
-//        session_start();
     }
 
     /**
@@ -51,9 +49,48 @@ class FrontendController extends NubaiController {
         // ---------------------------------------------------------------------------------------------
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
+        
+        session_set_save_handler(
+                //open
+                function ($session_path, $session_name) {
+            
+            $this->prueba = 'la prueba';
+            return true;
+        },
+                //close
+                function () {
+
+            return true;
+        },
+                //read
+                function ($sid) {
+            
+            return '';
+        },
+                //write
+                function ($sid, $sdata) {
+            
+            $repo = $this->storage()->getRepository('sessions');
+            $repo->doWrite($sid, $sdata);
+            
+        },
+                //destroy
+                function ($sid) {
+            
+            return true;
+        },
+                //gc
+                function ($lifetime) {
+            
+            return true;
+        }
+        );
+        
+        \session_start();
 
         $data_to_template = [
             'session_data' => $this->session()->all(),
+            'prueba' => $this->prueba,
         ];
 
 
@@ -312,7 +349,7 @@ class FrontendController extends NubaiController {
     public function members(Request $request) {
 
         if ($this->session()->has('customer') === true) {
-            
+
             return $this->redirectToRoute('homeproducts');
         }
 
@@ -332,6 +369,11 @@ class FrontendController extends NubaiController {
         ];
 
         return $this->render('members.twig', $data_to_template);
+    }
+
+    private function sessionSetSaveHandler() {
+
+        
     }
 
 }

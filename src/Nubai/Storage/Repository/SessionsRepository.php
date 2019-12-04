@@ -13,4 +13,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
  */
 class SessionsRepository extends Repository {
     
+    public function doWrite($sid, $sdata) {
+        
+        $entity = $this->create(['sid' => '76743459459', 'sdata' => 'sdatasdatasdata']);
+        $this->save($entity);
+    }
 }
