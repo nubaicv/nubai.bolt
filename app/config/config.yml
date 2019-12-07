@@ -469,3 +469,10 @@ compatibility:
     # Set to 'false' to enable using a newer version of the setcontent parser.
     setcontent_legacy: true
 
+#session:
+#    save_handler: memcached
+#    connection:
+#        host: 127.0.0.1
+#        port: 11211
+#        weight: 0
+#        expiretime: 86400

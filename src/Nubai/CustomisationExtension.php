@@ -36,10 +36,6 @@ class CustomisationExtension extends SimpleExtension
                 \Bundle\Nubai\Storage\Entity\Products::class =>
                 \Bundle\Nubai\Storage\Repository\ProductsRepository::class
             ],
-            'sessions' => [
-                \Bundle\Nubai\Storage\Entity\Sessions::class =>
-                \Bundle\Nubai\Storage\Repository\SessionsRepository::class
-            ],
         ];
         
     }
@@ -49,7 +45,6 @@ class CustomisationExtension extends SimpleExtension
         return [
             
             'customers' => \Bundle\Nubai\Storage\Schema\Table\Customers::class,
-            'sessions' => \Bundle\Nubai\Storage\Schema\Table\Sessions::class,
         ];
     }
     

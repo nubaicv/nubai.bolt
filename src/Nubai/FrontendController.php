@@ -13,11 +13,8 @@ use Symfony\Component\HttpFoundation\Response as Response;
  * @author ricardo
  */
 class FrontendController extends NubaiController {
-    
-    private $prueba = 'po';
 
     public function __construct() {
-        
     }
 
     /**
@@ -50,47 +47,19 @@ class FrontendController extends NubaiController {
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
         
-        session_set_save_handler(
-                //open
-                function ($session_path, $session_name) {
-            
-            $this->prueba = 'la prueba';
-            return true;
-        },
-                //close
-                function () {
-
-            return true;
-        },
-                //read
-                function ($sid) {
-            
-            return '';
-        },
-                //write
-                function ($sid, $sdata) {
-            
-            $repo = $this->storage()->getRepository('sessions');
-            $repo->doWrite($sid, $sdata);
-            
-        },
-                //destroy
-                function ($sid) {
-            
-            return true;
-        },
-                //gc
-                function ($lifetime) {
-            
-            return true;
+        if (!$request->hasPreviousSession() === true) {
+            $this->session()->set('hit', true);
+        } else {
+            $this->session()->set('hit', false);
         }
-        );
         
-        \session_start();
+        $this->session()->set('session_id', $this->session()->getId());
+        $this->session()->set('remote_server', $request->server->get('REMOTE_ADDR'));
+        $some_data['attributes'] = $this->session()->all();
 
         $data_to_template = [
             'session_data' => $this->session()->all(),
-            'prueba' => $this->prueba,
+            'some_data' => $some_data
         ];
 
 
@@ -219,6 +188,7 @@ class FrontendController extends NubaiController {
             if ($customer) {
 
                 $this->session()->set('customer', $customer[0]);
+                $this->session()->migrate();
             } else {
 
                 return $this->redirectToRoute('memberspage', ['from' => 'failedlogin']);
@@ -369,11 +339,6 @@ class FrontendController extends NubaiController {
         ];
 
         return $this->render('members.twig', $data_to_template);
-    }
-
-    private function sessionSetSaveHandler() {
-
-        
     }
 
 }
