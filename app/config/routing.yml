@@ -75,6 +75,11 @@ logoutcontroller:
     path: /logout
     defaults:
         _controller: controller.frontend:logout
+        
+registercontroller:
+    path: /register
+    defaults:
+        _controller: controller.frontend:register
 
 testingpage:
     path: /testing

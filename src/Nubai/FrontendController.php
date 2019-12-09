@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response as Response;
 class FrontendController extends NubaiController {
 
     public function __construct() {
+        
     }
 
     /**
@@ -46,19 +47,18 @@ class FrontendController extends NubaiController {
         // ---------------------------------------------------------------------------------------------
         // Meu codigo aqui
         // ---------------------------------------------------------------------------------------------
-        
+
         if (!$request->hasPreviousSession() === true) {
             $this->session()->set('hit', true);
         } else {
             $this->session()->set('hit', false);
         }
-        
+
         $this->session()->set('session_id', $this->session()->getId());
         $this->session()->set('remote_server', $request->server->get('REMOTE_ADDR'));
         $some_data['attributes'] = $this->session()->all();
 
         $data_to_template = [
-            'session_data' => $this->session()->all(),
             'some_data' => $some_data
         ];
 
@@ -99,7 +99,6 @@ class FrontendController extends NubaiController {
 
 
         $data_to_template = [
-            'session_data' => $this->session()->all(),
         ];
 
 
@@ -161,7 +160,6 @@ class FrontendController extends NubaiController {
         // ---------------------------------------------------------------------------------------------
 
         $data_to_template = [
-            'session_data' => $this->session()->all(),
         ];
 
 
@@ -176,26 +174,79 @@ class FrontendController extends NubaiController {
 
             $this->session()->invalidate();
             return $this->redirectToRoute('homepage');
+        }
+
+        $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
+        $password = $request->request->filter('password', null, FILTER_SANITIZE_STRING, [FILTER_FLAG_STRIP_LOW, FILTER_FLAG_STRIP_HIGH]);
+
+        $repo = $this->storage()->getRepository('customers');
+
+        $customer = $repo->verifyCredentials($email, $password);
+
+        if ($customer) {
+
+            $this->session()->set('customer', $customer[0]);
         } else {
 
-            $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
-            $password = $request->request->filter('password', null, FILTER_SANITIZE_STRING, [FILTER_FLAG_STRIP_LOW, FILTER_FLAG_STRIP_HIGH]);
-
-            $repo = $this->storage()->getRepository('customers');
-
-            $customer = $repo->verifyCredentials($email, $password);
-
-            if ($customer) {
-
-                $this->session()->set('customer', $customer[0]);
-                $this->session()->migrate();
-            } else {
-
-                return $this->redirectToRoute('memberspage', ['from' => 'failedlogin']);
-            }
+            return $this->redirectToRoute('memberspage', ['from' => 'failedlogin']);
         }
 
         return $this->redirectToRoute('homepage');
+    }
+
+    public function register(Request $request) {
+
+        if ($this->session()->has('customer') === true) {
+
+            $this->session()->invalidate();
+            return $this->redirectToRoute('homepage');
+        }
+        
+
+        if (!$request->request->filter('email', null, FILTER_VALIDATE_EMAIL)) {
+            
+            //create error message
+            return new \Symfony\Component\Config\Definition\Exception\Exception('invalid email');
+        }
+
+        $forename = $request->request->filter('forename', null, FILTER_SANITIZE_STRING);
+        $surname = $request->request->filter('surname', null, FILTER_SANITIZE_STRING);
+        $password = $request->request->filter('password', null, FILTER_SANITIZE_STRING);
+        $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
+        $address = $request->request->filter('address', null, FILTER_SANITIZE_STRING);
+        $phone = $request->request->filter('phone', null, FILTER_SANITIZE_STRING);
+        $cell_phone = $request->request->filter('cell-phone', null, FILTER_SANITIZE_STRING);
+        $company = $request->request->filter('company', null, FILTER_SANITIZE_STRING);
+
+        $data = [
+            'forename' => strtolower(trim($forename)),
+            'surname' => strtolower(trim($surname)),
+            'email' => strtolower(trim($email)),
+            'password' => $password,
+            'address' => $address,
+            'phone' => $phone,
+            'cell_phone' => $cell_phone,
+            'company' => $company
+        ];
+        
+        $repo = $this->storage()->getRepository('customers');
+        
+        if (!$repo->emailExists($data['email'])) {
+            
+            try {
+                
+                $repo->registerCustomer($data);
+            } catch (Exception $ex) {
+                
+                return $ex;
+            }
+        } else {
+            
+            //create error message
+            return new \Symfony\Component\Config\Definition\Exception\Exception('email already exists');
+        }
+
+        return $this->redirectToRoute('memberspage');
     }
 
     public function logout(Request $request) {
@@ -296,7 +347,6 @@ class FrontendController extends NubaiController {
         // ---------------------------------------------------------------------------------------------
 
         $data_to_template = [
-            'session_data' => $this->session()->all(),
         ];
 
         return $this->render($template, $data_to_template, $globals);
@@ -333,7 +383,6 @@ class FrontendController extends NubaiController {
 
 
         $data_to_template = [
-            'session_data' => $this->session()->all(),
             'parameters' => $parameters,
             'estado' => $estado,
         ];

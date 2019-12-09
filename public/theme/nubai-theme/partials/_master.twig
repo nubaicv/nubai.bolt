@@ -39,7 +39,7 @@
                     <div id="section_center" class="row">
 
                         <div id="nav-main-wrapper" class="col-md-12">
-                            {% if session_data.customer is defined %}
+                            {% if app.session.has('customer') %}
                                 {{ menu('mymainsession', 'partials/_menu_mymain.twig') }}
                             {% else %}
                                 {{ menu('mymain', 'partials/_menu_mymain.twig') }}

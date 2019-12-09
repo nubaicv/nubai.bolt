@@ -12,8 +12,8 @@
                 </div>
             </form>
         </div>
-        {% if session_data.customer is defined %}
-            {{ dump(session_data) }}
+        {% if app.session.get('customer') %}
+            {{ dump(app.session.get('customer')) }}
         {% endif %}
     </div>
 </aside>
