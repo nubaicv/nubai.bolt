@@ -167,6 +167,19 @@ class FrontendController extends NubaiController {
 
         return $this->render($template, $data_to_template, $globals);
     }
+    
+    public function members(Request $request) {
+
+        if ($this->session()->has('customer') === true) {
+
+            return $this->redirectToRoute('homeproducts');
+        }
+
+        $data_to_template = [
+        ];
+
+        return $this->render('members.twig', $data_to_template);
+    }
 
     public function login(Request $request) {
 
@@ -356,7 +369,7 @@ class FrontendController extends NubaiController {
 
     public function testing(Request $request) {
 
-        $data = $request;
+        $data = 'Texto para traduzir';
 
         $data_to_template = [
             'title' => 'My title',
@@ -365,29 +378,4 @@ class FrontendController extends NubaiController {
 
         return $this->render('testing.twig', $data_to_template);
     }
-
-    public function members(Request $request) {
-
-        if ($this->session()->has('customer') === true) {
-
-            return $this->redirectToRoute('homeproducts');
-        }
-
-        $parameters = $request->request->all();
-
-        if (!empty($parameters) === true) {
-            $estado = 'Com parametros';
-        } else {
-            $estado = 'Sem parametros';
-        }
-
-
-        $data_to_template = [
-            'parameters' => $parameters,
-            'estado' => $estado,
-        ];
-
-        return $this->render('members.twig', $data_to_template);
-    }
-
 }
