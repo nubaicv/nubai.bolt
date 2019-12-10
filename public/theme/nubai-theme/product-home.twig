@@ -19,14 +19,10 @@
                 {% else %}
                     <h2>{{ product.price }}$00 ECV</h2>
                 {% endif %}
-                {% set relatedrecords = product.related() %}
-                {% if relatedrecords is not empty %}
-                    <p>
-                        {% for related in relatedrecords %}
-                            <a href="{{ related.link }}">/{{ related.title }}/</a>
-                        {% endfor %}
-                    </p>
-                {% endif %}
+                {% setcontent subcategory = 'subcategories' where { id: product.subcategory } %}
+                <p>
+                    <a href="{{ subcategory.link }}">/ {{ subcategory.name }} /</a>
+                </p>
                 {{ include('partials/_recordfooter.twig') }}                
             </div>
         {% endfor %}
