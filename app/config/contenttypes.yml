@@ -11,6 +11,7 @@ homepage:
         title:
             type: text
             class: large
+            translatable: true
 #            group: content
 #            postfix: |
 #                The 'Homepage' can contain basic information about the website. This title will be
@@ -28,6 +29,7 @@ homepage:
             type: html
             height: 200px
             postfix: "Use isto para..."
+            translatable: true
 #        contentlink:
 #            type: text
 #            label: Link
@@ -37,6 +39,23 @@ homepage:
             type: slug
             uses: title
             group: meta
+        locale:
+            type: locale
+        ptdata:
+            type: hidden
+        ptslug:
+            type: locale_data
+            index: true
+        endata:
+            type: hidden
+        enslug:
+            type: locale_data
+            index: true
+        frdata:
+            type: hidden
+        frslug:
+            type: locale_data
+            index: true
 #    viewless: true
     singleton: true
     default_status: published

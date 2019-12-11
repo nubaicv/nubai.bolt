@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/app/nut</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/index.php</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/index.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/partials/_master.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/app/config/routing.yml</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/partials/_master_products.twig</file>
             <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/src/Nubai/FrontendController.php</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/src/Nubai/CustomisationExtension.php</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/app/config/config.yml</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/.bolt.yml</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/partials/_header.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/app/config/contenttypes.yml</file>
         </group>
     </open-files>
 </project-private>

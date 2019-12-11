@@ -1,62 +1,97 @@
 # This file defines the menus on the website. See the documentation for
 # details: https://docs.bolt.cm/configuration/menus
 
-main:
-    - label: Home
-      title: This is the first menu item.
-      path: homepage
-      class: first
-    - label: Second item
-      path: entry/1
-      submenu:
-          - label: Sub 1
-            path: entry/2
-          - label: Sub 2
-            class: menu-item-class
-            path: entry/3
-          - label: Sub 3
-            path: entry/4
-          - label: Sub 4
-            class: sub-class
-            path: page/3
-    - label: All pages
-      path: pages/
-    - label: The Bolt site
-      link: http://bolt.cm
-      class: last
-
 mymain:
-    - label: Home
+    - label: Inicio
+      enlabel: Home
+      frlabel: Démarrer
       path: /
       class: first
     - label: Páginas
+      enlabel: Pages
+      frlabel: Pages
       path: /pages
       submenu:
           - label: Sobre
-            title: Everything about our company
+            enlabel: About
+            frlabel: Tout sur
+            title: Tudo sobre nos
+            entitle: Everything about us
+            frtitle: Tout sur nous
             path: /page/about
           - label: Contacto
-            title: Our contact page
+            enlabel: Contact
+            frlabel: Contact
+            title: Nossa pagina de contacto
+            entitle: Out contact page
+            frtitle: Notre page de contact
             path: /page/contact
     - label: Produtos
+      enlabel: Products
+      frlabel: Les produits
       path: /products
     - label: Iniciar sessão
+      enlabel: Log in
+      frlabel: Connexion
       path: /members?from=mainmenu
 
+
 mymainsession:
-    - label: Home
+    - label: Inicio
+      enlabel: Home
+      frlabel: Démarrer
       path: /
       class: first
     - label: Páginas
+      enlabel: Pages
+      frlabel: Pages
       path: /pages
       submenu:
           - label: Sobre
-            title: Everything about our company
+            enlabel: About
+            frlabel: Tout sur
+            title: Tudo sobre nos
+            entitle: Everything about us
+            frtitle: Tout sur nous
             path: /page/about
           - label: Contacto
-            title: Our contact page
+            enlabel: Contact
+            frlabel: Contact
+            title: Nossa pagina de contacto
+            entitle: Out contact page
+            frtitle: Notre page de contact
             path: /page/contact
     - label: Produtos
+      enlabel: Products
+      frlabel: Les produits
       path: /products
     - label: Encerrar sessão
+      enlabel: Log out
+      frlabel: Se déconnecter
       path: /logout
+      
+
+
+#main:
+#    - label: Home
+#      title: This is the first menu item.
+#      path: homepage
+#      class: first
+#    - label: Second item
+#      path: entry/1
+#      submenu:
+#          - label: Sub 1
+#            path: entry/2
+#          - label: Sub 2
+#            class: menu-item-class
+#            path: entry/3
+#          - label: Sub 3
+#            path: entry/4
+#          - label: Sub 4
+#            class: sub-class
+#            path: page/3
+#    - label: All pages
+#      path: pages/
+#    - label: The Bolt site
+#      link: http://bolt.cm
+#      class: last

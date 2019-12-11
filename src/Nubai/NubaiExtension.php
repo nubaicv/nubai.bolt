@@ -8,11 +8,12 @@ use Bolt\Extension\SimpleExtension;
 use Bolt\Extension\StorageTrait;
 use Bolt\Extension\DatabaseSchemaTrait;
 use Silex\Application;
+use Silex\ControllerCollection;
 
 /**
  * Site bundle extension loader.
  */
-class CustomisationExtension extends SimpleExtension
+class NubaiExtension extends SimpleExtension
 {
     
     use StorageTrait;
@@ -47,5 +48,4 @@ class CustomisationExtension extends SimpleExtension
             'customers' => \Bundle\Nubai\Storage\Schema\Table\Customers::class,
         ];
     }
-    
 }

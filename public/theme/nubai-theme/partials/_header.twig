@@ -1,7 +1,7 @@
 <!-- Header -->
 <header class="row">
     <div id="header-div-1" class="col-sm-6 col-md-4">
-        <a id="logotipo" href="/"></a>
+        <a id="logotipo" href="{{ path('homepage') }}"></a>
     </div>
     <div id="header-div-2" class="col-sm-6 col-md-4 col-md-push-4">
         {% if app.session.has('customer') %}

@@ -20,5 +20,10 @@ class Application extends Nubai {
                     return new FrontendController();
                 }
         );
+        $this['controller.members'] = $this->share(
+                function () {
+                    return new MembersController();
+                }
+        );
     }
 }
