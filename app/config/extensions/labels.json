@@ -1,0 +1,172 @@
+{
+    "members:login:fyp": {
+        "nl": null,
+        "la": null,
+        "en": "did you forget your password?",
+        "sl": null,
+        "de": null,
+        "fr": "avez-vous oublié votre mot de passe?",
+        "it": null,
+        "pt": "esqueceste-te da tua palavra-passe?"
+    },
+    "members:login:ipis": {
+        "nl": null,
+        "la": null,
+        "en": "enter to login",
+        "sl": null,
+        "de": null,
+        "fr": "entrez pour vous connecter",
+        "it": null,
+        "pt": "introduz para iniciar sessão"
+    },
+    "members:login:is": {
+        "nl": null,
+        "la": null,
+        "en": "Log into Nubai",
+        "sl": null,
+        "de": null,
+        "fr": "Se connecter à Nubai",
+        "it": null,
+        "pt": "Inicia sessão no Nubai"
+    },
+    "members:login:submit": {
+        "nl": null,
+        "la": null,
+        "en": "log in",
+        "sl": null,
+        "de": null,
+        "fr": "entrer",
+        "it": null,
+        "pt": "entrar"
+    },
+    "members:register:address": {
+        "nl": null,
+        "la": null,
+        "en": "address",
+        "sl": null,
+        "de": null,
+        "fr": "adresse",
+        "it": null,
+        "pt": "endereço"
+    },
+    "members:register:apelidos": {
+        "nl": null,
+        "la": null,
+        "en": "surname",
+        "sl": null,
+        "de": null,
+        "fr": "nom de famille",
+        "it": null,
+        "pt": "apelidos"
+    },
+    "members:register:cellphone": {
+        "nl": null,
+        "la": null,
+        "en": "cell phone",
+        "sl": null,
+        "de": null,
+        "fr": "téléphone portable",
+        "it": null,
+        "pt": "telemóvel"
+    },
+    "members:register:criarconta": {
+        "nl": null,
+        "la": null,
+        "en": "sign up",
+        "sl": null,
+        "de": null,
+        "fr": "inscription",
+        "it": null,
+        "pt": "regista-te"
+    },
+    "members:register:dp": {
+        "nl": null,
+        "la": null,
+        "en": "personal data",
+        "sl": null,
+        "de": null,
+        "fr": "données personnelles",
+        "it": null,
+        "pt": "dados pessoais"
+    },
+    "members:register:entidade": {
+        "nl": null,
+        "la": null,
+        "en": "company",
+        "sl": null,
+        "de": null,
+        "fr": "entreprise",
+        "it": null,
+        "pt": "entidade"
+    },
+    "members:register:newpass": {
+        "nl": null,
+        "la": null,
+        "en": "new password",
+        "sl": null,
+        "de": null,
+        "fr": "nouveau mot de passe",
+        "it": null,
+        "pt": "nova palavra-passe"
+    },
+    "members:register:nome": {
+        "nl": null,
+        "la": null,
+        "en": "name",
+        "sl": null,
+        "de": null,
+        "fr": "prénom",
+        "it": null,
+        "pt": "nome"
+    },
+    "members:register:phone": {
+        "nl": null,
+        "la": null,
+        "en": "phone",
+        "sl": null,
+        "de": null,
+        "fr": "numéro de téléphone",
+        "it": null,
+        "pt": "telefone"
+    },
+    "members:register:shippingdata": {
+        "nl": null,
+        "la": null,
+        "en": "shipping data (optional)",
+        "sl": null,
+        "de": null,
+        "fr": "données d'expédition (c'est facultatif)",
+        "it": null,
+        "pt": "dados de envio (opcional)"
+    },
+    "members:register:submit": {
+        "nl": null,
+        "la": null,
+        "en": "sign up",
+        "sl": null,
+        "de": null,
+        "fr": "inscription",
+        "it": null,
+        "pt": "regista-te"
+    },
+    "palavra:email": {
+        "nl": null,
+        "la": null,
+        "en": "email",
+        "sl": null,
+        "de": null,
+        "fr": "email",
+        "it": null,
+        "pt": "email"
+    },
+    "palavra:password": {
+        "nl": null,
+        "la": null,
+        "en": "password",
+        "sl": null,
+        "de": null,
+        "fr": "mot de passe",
+        "it": null,
+        "pt": "palavra-passe"
+    }
+}

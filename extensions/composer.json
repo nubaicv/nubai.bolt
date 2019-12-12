@@ -33,6 +33,7 @@
         "post-package-update": "Bolt\\Composer\\EventListener\\PackageEventListener::handle"
     },
     "require": {
-        "animal/translate": "^4.2"
+        "animal/translate": "^4.2",
+        "bolt/labels": "^3.1"
     }
 }

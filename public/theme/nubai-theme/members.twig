@@ -6,17 +6,17 @@
             <div class="col-xs-12 col-sm-6">
                 <form id="form-login" method="post" action="{{ path('logincontroller') }}">
                     <div class="form-elements-wrapper">
-                        <h2>Iniciar sessão</h2>
+                        <h2>{{ l('members:login:is') }}</h2>
                         <fieldset>
-                            <legend><em>Introduz para iniciar sessão</em></legend>
+                            <legend><em>{{ l('members:login:ipis')|capitalize }}</em></legend>
                             <label for="email">Email</label>
                             <input id="email" type="email" name="email" placeholder="Email">
                             <label for="password">Password</label>
-                            <input id="password" type="password" name="password" placeholder="Palavra-passe">
+                            <input id="password" type="password" name="password" placeholder="{{ l('palavra:password')|capitalize }}">
                         </fieldset>
                         <div>
-                            <button type="submit">Entrar</button>
-                            <p><a href="javascript:void(0);">Esqueceste-te da tua palavra-passe?</a></p>
+                            <button type="submit">{{ l('members:login:submit')|capitalize }}</button>
+                            <p><a href="javascript:void(0);">{{ l('members:login:fyp')|capitalize }}</a></p>
                         </div>
                     </div>
                 </form>
@@ -24,32 +24,32 @@
             <div class="col-xs-12 col-sm-6">
                 <form id="form-register" method="post" action="{{ path('registercontroller') }}">
                     <div class="form-elements-wrapper">
-                        <h2>Regista-te</h2>
+                        <h2>{{ l('members:register:criarconta')|capitalize }}</h2>
                         <fieldset>
-                            <legend><em>Dados pessoais</em></legend>
+                            <legend><em>{{ l('members:register:dp')|capitalize }}</em></legend>
                             <label for="forename">Nome</label>
-                            <input id="forename" type="text" name="forename" placeholder="Nome pr&oacute;prio*">
+                            <input id="forename" type="text" name="forename" placeholder="{{ l('members:register:nome')|capitalize }}*">
                             <label for="surname">Apelidos</label>
-                            <input id="surname" type="text" name="surname" placeholder="Apelidos*">
+                            <input id="surname" type="text" name="surname" placeholder="{{ l('members:register:apelidos')|capitalize }}*">
                             <label for="email">Email</label>
-                            <input id="email" type="email" name="email" placeholder="Email*">
+                            <input id="email" type="email" name="email" placeholder="{{ l('palavra:email')|capitalize }}*">
                             <label for="password">Palavra-passe nova</label>
-                            <input id="password" type="password" name="password" placeholder="Palavra-passe nova*">
+                            <input id="password" type="password" name="password" placeholder="{{ l('members:register:newpass')|capitalize }}*">
                         </fieldset><br>
                         <fieldset>
-                            <legend><em>Dados de shipping (opcionais)</em></legend>
-                            <label for="address">Endere&ccedil;o</label>
-                            <textarea id="address" name="address" placeholder="Endere&ccedil;o de envio"></textarea>
+                            <legend><em>{{ l('members:register:shippingdata')|capitalize }}</em></legend>
+                            <label for="address">Endereco</label>
+                            <textarea id="address" name="address" placeholder="{{ l('members:register:address')|capitalize }}"></textarea>
                             <label for="phone">Tel. fixo</label>
-                            <input id="phone" type="text" name="phone" placeholder="Telefone fixo">
-                            <label for="cell-phone">Telem&oacute;vel</label>
-                            <input id="cell-phone" type="text" name="cell-phone" placeholder="Telem&oacute;vel">
+                            <input id="phone" type="text" name="phone" placeholder="{{ l('members:register:phone')|capitalize }}">
+                            <label for="cell-phone">Telemovel</label>
+                            <input id="cell-phone" type="text" name="cell-phone" placeholder="{{ l('members:register:cellphone')|capitalize }}">
                             <label for="company">Entidade (empresa ou loja)</label>
-                            <input id="company" type="text" name="company" placeholder="Entidade">
+                            <input id="company" type="text" name="company" placeholder="{{ l('members:register:entidade')|capitalize }}">
                         </fieldset>
                         <!--<div class="g-recaptcha" data-sitekey="6Lfv7TMUAAAAAGKCIiKLksTaWNDoHxqGUOzkydPt"></div>-->
                         <div>
-                            <button type="submit">Registar</button>
+                            <button type="submit">{{ l('members:register:submit')|capitalize }}</button>
                         </div>
                     </div>
                 </form>

@@ -11,6 +11,9 @@
                 {{ config.get('general/sitename') -}}
                 {% if record.title is not defined and config.get('general/payoff') %} | {{ config.get('general/payoff') }}{% endif -%}
             </title>
+            {% for key, locale in locales|default([]) %}
+                <link rel="alternate" hreflang="{{key|replace({'_': '-'})}}" href="{{locale.getUrl()}}">
+            {% endfor %}
             <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css', 'theme') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/styles.css', 'theme') }}">
             <style>
@@ -45,7 +48,7 @@
                                 {{ menu('mymain', '@bolt/frontend/_sub_menu_translated.twig') }}
                             {% endif %}
                         </div>
-                        
+
                         <div id="locale-switcher-wrapper" class="col-md-12">
                             {{ localeswitcher() }}
                         </div>
