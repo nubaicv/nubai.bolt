@@ -14,35 +14,22 @@
             {% for key, locale in locales|default([]) %}
                 <link rel="alternate" hreflang="{{key|replace({'_': '-'})}}" href="{{locale.getUrl()}}">
             {% endfor %}
-            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css', 'theme') }}">
+            <!--<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css', 'theme') }}">-->
             <link rel="stylesheet" href="{{ asset('assets/css/lightslider.css', 'theme') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/styles.css', 'theme') }}">
-            <style>
-
-                a#logotipo {
-                    background-image: url("{{ paths.files }}nubai-new-logo-small.png");
-                }
-
-                @media (min-width: 992px) {
-
-                    a#logotipo {
-                        background-image: url("{{ paths.files }}nubai-new-logo-medium.png");
-                    }
-                }
-
-            </style>
+            <link rel="stylesheet" href="{{ asset('assets/css/styles2.css', 'theme') }}">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         </head>
         <body>
 
-            <div id="page" class="container-fluid">
+            <div id="page">
 
                 {% block body %}
 
                     {{ include('partials/_header.twig') }}
 
-                    <div id="section_center" class="row">
+                    <div id="section-center" class="w3-container">
 
-                        <div id="nav-main-wrapper" class="col-md-12">
+                        <div id="nav-main-wrapper" class="w3-row">
                             {% if app.session.has('customer') %}
                                 {{ menu('mymainsession', '@bolt/frontend/_sub_menu_translated.twig') }}
                             {% else %}
@@ -50,22 +37,21 @@
                             {% endif %}
                         </div>
 
-                        <div id="locale-switcher-wrapper" class="col-md-12">
+                        <div id="locale-switcher-wrapper" class="w3-row">
                             {{ localeswitcher() }}
                         </div>
 
-                        <div id="main-content" class="col-md-9 col-md-push-3">
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-4 col-lg-push-4"></div>
-                                <div class="col-sm-6 col-lg-4 col-lg-pull-4"></div>
-                                <div class="col-sm-6 col-lg-4"></div>
+                        <div class="w3-row-padding">
+                            
+                            <div id="aside-wrapper" class="w3-col l3">
+                                {{ include('partials/_aside.twig') }}
                             </div>
-                            {% block main %}
-                            {% endblock main %}
-                        </div>
 
-                        <div id="aside-wrapper" class="col-md-3 col-md-pull-9">
-                            {{ include('partials/_aside.twig') }}
+                            <div id="main-content" class="w3-col l9">
+                                {% block main %}
+                                {% endblock main %}
+                            </div>
+
                         </div>
 
                     </div>

@@ -3,19 +3,19 @@
 {% block main %}
     <div>
         {% for product in records %}
-            <div class="product-preview">
+            <div class="product-preview w3-mobile w3-card">
                 <a href="{{ product.link }}">
                     {% for image in product.images %}
                         {% if loop.first %}
                             <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}">
                         {% endif %}
                     {% endfor %}
-                    <h3 class="page-title">{{ product.title }}</h3>
+                    <h3>{{ product.title }}</h3>
                 </a>
                 {% if product.discount != 0 %}
-                    <span style="color: gray; text-decoration: line-through">{{ product.price }}$00 ECV</span>
+                    <span>{{ product.price }}$00 ECV</span>
                     <h2>{{ (product.price - (product.price * product.discount / 100))|round }}$00 ECV</h2>
-                    <span style="background-color: red; color: white; padding: 2px 3px"><strong>Poupa {{ product.discount }}%</strong></span>
+                    <span><strong>Poupa {{ product.discount }}%</strong></span>
                 {% else %}
                     <h2>{{ product.price }}$00 ECV</h2>
                 {% endif %}

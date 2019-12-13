@@ -1,18 +1,15 @@
 <!-- Header -->
-<header class="row">
-    <div id="header-div-1" class="col-sm-6 col-md-4">
-        <a id="logotipo" href="{{ path('homepage') }}"></a>
+
+<header class="w3-container w3-teal">
+    <div class="w3-row">
+        <div id="logotipo-wrapper" class="w3-col s8 l4 w3-display-container w3-padding-32">
+            <a id="logotipo" href="{{ path('homepage') }}" class="w3-display-left"></a>
+        </div>
+        <div class="w3-col s4 l4 w3-display-container w3-padding-32">
+            <span class="w3-display-right">center</span>
+        </div>
+        <div class="w3-col s12 l4 w3-display-container w3-padding-32">
+            <span class="w3-display-right">rigth</span>
+        </div>
     </div>
-    <div id="header-div-2" class="col-sm-6 col-md-4 col-md-push-4">
-        {% if app.session.has('customer') %}
-            <a href="javascript:void(0);">{{ app.session.get('customer').email }} <i class="fas fa-cog"></i></a>
-        {% endif %}
-    </div>
-    <div id="header-div-3" class="col-sm-12 col-md-4 col-md-pull-4">
-    </div>
-    {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
-    {#<h2><a href="{{ path('homepage') }}">{{ config.get('general/sitename') }}</a></h2>
-    {% if config.get('general/payoff') %}
-        <p>{{ config.get('general/payoff') }}</p>
-    {% endif %}#}
 </header>

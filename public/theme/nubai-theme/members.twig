@@ -1,55 +1,55 @@
 {% extends 'partials/_master.twig' %}
 
 {% block main %}
-    <div class="container">
-        <div class="row row-login-register">
-            <div class="col-xs-12 col-sm-6">
-                <form id="form-login" method="post" action="{{ path('logincontroller') }}">
+    <div class="">
+        <div class="w3-row row-login-register">
+            <div class="w3-col l6">
+                <form id="form-login" method="post" action="{{ path('logincontroller') }}" class="w3-container">
                     <div class="form-elements-wrapper">
                         <h2>{{ l('members:login:is') }}</h2>
                         <fieldset>
                             <legend><em>{{ l('members:login:ipis')|capitalize }}</em></legend>
                             <label for="email">Email</label>
-                            <input id="email" type="email" name="email" placeholder="Email">
+                            <input id="email" type="email" name="email" placeholder="Email" class="w3-input">
                             <label for="password">Password</label>
-                            <input id="password" type="password" name="password" placeholder="{{ l('palavra:password')|capitalize }}">
+                            <input id="password" type="password" name="password" placeholder="{{ l('palavra:password')|capitalize }}" class="w3-input">
                         </fieldset>
                         <div>
-                            <button type="submit">{{ l('members:login:submit')|capitalize }}</button>
+                            <button type="submit" class="w3-mobile">{{ l('members:login:submit')|capitalize }}</button>
                             <p><a href="javascript:void(0);">{{ l('members:login:fyp')|capitalize }}</a></p>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="col-xs-12 col-sm-6">
-                <form id="form-register" method="post" action="{{ path('registercontroller') }}">
+            <div class="w3-col l6">
+                <form id="form-register" method="post" action="{{ path('registercontroller') }}" class="w3-container">
                     <div class="form-elements-wrapper">
                         <h2>{{ l('members:register:criarconta')|capitalize }}</h2>
                         <fieldset>
                             <legend><em>{{ l('members:register:dp')|capitalize }}</em></legend>
                             <label for="forename">Nome</label>
-                            <input id="forename" type="text" name="forename" placeholder="{{ l('members:register:nome')|capitalize }}*">
+                            <input id="forename" type="text" name="forename" placeholder="{{ l('members:register:nome')|capitalize }}*" class="w3-input">
                             <label for="surname">Apelidos</label>
-                            <input id="surname" type="text" name="surname" placeholder="{{ l('members:register:apelidos')|capitalize }}*">
+                            <input id="surname" type="text" name="surname" placeholder="{{ l('members:register:apelidos')|capitalize }}*" class="w3-input">
                             <label for="email">Email</label>
-                            <input id="email" type="email" name="email" placeholder="{{ l('palavra:email')|capitalize }}*">
+                            <input id="email" type="email" name="email" placeholder="{{ l('palavra:email')|capitalize }}*" class="w3-input">
                             <label for="password">Palavra-passe nova</label>
-                            <input id="password" type="password" name="password" placeholder="{{ l('members:register:newpass')|capitalize }}*">
+                            <input id="password" type="password" name="password" placeholder="{{ l('members:register:newpass')|capitalize }}*" class="w3-input">
                         </fieldset><br>
                         <fieldset>
                             <legend><em>{{ l('members:register:shippingdata')|capitalize }}</em></legend>
                             <label for="address">Endereco</label>
-                            <textarea id="address" name="address" placeholder="{{ l('members:register:address')|capitalize }}"></textarea>
+                            <textarea id="address" name="address" placeholder="{{ l('members:register:address')|capitalize }}" class="w3-input"></textarea>
                             <label for="phone">Tel. fixo</label>
-                            <input id="phone" type="text" name="phone" placeholder="{{ l('members:register:phone')|capitalize }}">
+                            <input id="phone" type="text" name="phone" placeholder="{{ l('members:register:phone')|capitalize }}" class="w3-input">
                             <label for="cell-phone">Telemovel</label>
-                            <input id="cell-phone" type="text" name="cell-phone" placeholder="{{ l('members:register:cellphone')|capitalize }}">
+                            <input id="cell-phone" type="text" name="cell-phone" placeholder="{{ l('members:register:cellphone')|capitalize }}" class="w3-input">
                             <label for="company">Entidade (empresa ou loja)</label>
-                            <input id="company" type="text" name="company" placeholder="{{ l('members:register:entidade')|capitalize }}">
+                            <input id="company" type="text" name="company" placeholder="{{ l('members:register:entidade')|capitalize }}" class="w3-input">
                         </fieldset>
                         <!--<div class="g-recaptcha" data-sitekey="6Lfv7TMUAAAAAGKCIiKLksTaWNDoHxqGUOzkydPt"></div>-->
                         <div>
-                            <button type="submit">{{ l('members:register:submit')|capitalize }}</button>
+                            <button type="submit" class="w3-mobile">{{ l('members:register:submit')|capitalize }}</button>
                         </div>
                     </div>
                 </form>

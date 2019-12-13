@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 12, 2019, 7:55:41 PM
+    Author     : ricardo
+*/
+
+/*header,
+aside,
+footer,
+div {
+    border: 1px dotted black;
+}*/
+
+img {
+    width: 100%;
+}
+
+a#logotipo {
+    width: 180px;
+    height: 48px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-image: url("/files/nubai-new-logo-small.png");
+}
+
+div.product-preview {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    padding: 4px;
+    overflow: hidden;
+    margin: 0px 5px 20px 0px;
+}
+
+@media (min-width: 992px) {
+
+    a#logotipo {
+        width: 200px;
+        height: 53px;
+        background-image: url("/files/nubai-new-logo-medium.png");
+    }
+    
+    div.product-preview {
+        width: 32%;
+    }
+}
+
+@media (min-width: 1200px) {
+    
+    div.product-preview {
+        width: 24%;
+    }
+}
+
+/* MEMBERS PAGE*/
+
+.row-login-register form fieldset label {
+    display: none;
+}
+
+.row-login-register form fieldset {
+    border-width: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* --------------------------------------------- */
