@@ -14,7 +14,6 @@
             {% for key, locale in locales|default([]) %}
                 <link rel="alternate" hreflang="{{key|replace({'_': '-'})}}" href="{{locale.getUrl()}}">
             {% endfor %}
-            <!--<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css', 'theme') }}">-->
             <link rel="stylesheet" href="{{ asset('assets/css/lightslider.css', 'theme') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/styles2.css', 'theme') }}">
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -27,27 +26,7 @@
 
                     {{ include('partials/_header.twig') }}
 
-                    <div id="nav-main-wrapper" class="w3-hide-large w3-teal">
-                        <div class="w3-bar-block">
-                            <a href="{{ path('homepage') }}" class="w3-bar-item w3-center">{{ l('mainnav:home')|capitalize }}</a>
-                            <a href="{{ path('homeproducts') }}" class="w3-bar-item w3-center">{{ l('mainnav:products')|capitalize }}</a>
-                            {% set parameters = {'slug': 'about'} %}
-                            <a href="{{ path('pagebinding', parameters) }}" class="w3-bar-item w3-center">{{ l('mainnav:about')|capitalize }}</a>
-                            {% set parameters = {'slug': 'contact'} %}
-                            <a href="{{ path('pagebinding', parameters) }}" class="w3-bar-item w3-center">{{ l('mainnav:contact')|capitalize }}</a>
-                        </div>
-                    </div>
-
-                    <div id="nav-main-wrapper" class="w3-container w3-hide-small w3-hide-medium w3-card w3-padding-16">
-                        <div class="w3-bar w3-text-teal">
-                            <a href="{{ path('homepage') }}" class="w3-bar-item w3-button"><i class="fas fa-home"></i></a>
-                            <a href="{{ path('homeproducts') }}" class="w3-bar-item w3-button">{{ l('mainnav:products')|capitalize }}</a>
-                            {% set parameters = {'slug': 'about'} %}
-                            <a href="{{ path('pagebinding', parameters) }}" class="w3-bar-item w3-button">{{ l('mainnav:about')|capitalize }}</a>
-                            {% set parameters = {'slug': 'contact'} %}
-                            <a href="{{ path('pagebinding', parameters) }}" class="w3-bar-item w3-button">{{ l('mainnav:contact')|capitalize }}</a>
-                        </div>
-                    </div>
+                    {{ include('partials/_main_navegation.twig') }}
 
                     <div id="section-center" class="w3-container w3-padding-16">
 
