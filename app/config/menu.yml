@@ -7,68 +7,24 @@ mymain:
       frlabel: Démarrer
       path: /
       class: first
-    - label: Páginas
-      enlabel: Pages
-      frlabel: Pages
-      path: /pages
-      submenu:
-          - label: Sobre
-            enlabel: About
-            frlabel: Sur nous
-            title: Tudo sobre nos
-            entitle: Everything about us
-            frtitle: Tout sur nous
-            path: /page/about
-          - label: Contacto
-            enlabel: Contact
-            frlabel: Contact
-            title: Nossa pagina de contacto
-            entitle: Out contact page
-            frtitle: Notre page de contact
-            path: /page/contact
     - label: Produtos
       enlabel: Products
       frlabel: Les produits
       path: /products
-    - label: Iniciar sessão
-      enlabel: Log in
-      frlabel: Connexion
-      path: /members?from=mainmenu
-
-
-mymainsession:
-    - label: Inicio
-      enlabel: Home
-      frlabel: Démarrer
-      path: /
-      class: first
-    - label: Páginas
-      enlabel: Pages
-      frlabel: Pages
-      path: /pages
-      submenu:
-          - label: Sobre
-            enlabel: About
-            frlabel: Sur nous
-            title: Tudo sobre nos
-            entitle: Everything about us
-            frtitle: Tout sur nous
-            path: /page/about
-          - label: Contacto
-            enlabel: Contact
-            frlabel: Contact
-            title: Nossa pagina de contacto
-            entitle: Out contact page
-            frtitle: Notre page de contact
-            path: /page/contact
-    - label: Produtos
-      enlabel: Products
-      frlabel: Les produits
-      path: /products
-    - label: Encerrar sessão
-      enlabel: Log out
-      frlabel: Se déconnecter
-      path: /logout
+    - label: Sobre
+      enlabel: About
+      frlabel: Sur nous
+      title: Tudo sobre nos
+      entitle: Everything about us
+      frtitle: Tout sur nous
+      path: /page/about
+    - label: Contacto
+      enlabel: Contact
+      frlabel: Contact
+      title: Nossa pagina de contacto
+      entitle: Out contact page
+      frtitle: Notre page de contact
+      path: /page/contact
       
 
 

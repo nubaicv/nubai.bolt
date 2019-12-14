@@ -1,4 +1,34 @@
 {
+    "aside:searchinput": {
+        "nl": "",
+        "la": "",
+        "en": "search products",
+        "sl": "",
+        "de": "",
+        "fr": "recherche de produits",
+        "it": "",
+        "pt": "pesquisar produtos"
+    },
+    "header:loginbutton": {
+        "nl": null,
+        "la": null,
+        "en": "log in",
+        "sl": null,
+        "de": null,
+        "fr": "se connecter",
+        "it": null,
+        "pt": "iniciar sessão"
+    },
+    "mainnav:home": {
+        "nl": "",
+        "la": "",
+        "en": "home",
+        "sl": "",
+        "de": "",
+        "fr": "Démarrer",
+        "it": "",
+        "pt": "inicio"
+    },
     "members:login:fyp": {
         "nl": null,
         "la": null,
@@ -168,5 +198,35 @@
         "fr": "mot de passe",
         "it": null,
         "pt": "palavra-passe"
+    },
+    "mainnav:products": {
+        "nl": null,
+        "la": null,
+        "en": "products",
+        "sl": null,
+        "de": null,
+        "fr": "les produits",
+        "it": null,
+        "pt": "produtos"
+    },
+    "mainnav:about": {
+        "nl": null,
+        "la": null,
+        "en": "about",
+        "sl": null,
+        "de": null,
+        "fr": "sur nous",
+        "it": null,
+        "pt": "sobre"
+    },
+    "mainnav:contact": {
+        "nl": null,
+        "la": null,
+        "en": "contact",
+        "sl": null,
+        "de": null,
+        "fr": "contact",
+        "it": null,
+        "pt": "contacto"
     }
 }

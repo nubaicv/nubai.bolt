@@ -19,6 +19,15 @@ img {
     width: 100%;
 }
 
+a, a:visited {
+    text-decoration: none;
+    transition: color 0.8s;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 a#logotipo {
     width: 180px;
     height: 48px;
