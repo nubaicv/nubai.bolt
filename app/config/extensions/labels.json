@@ -19,6 +19,26 @@
         "it": null,
         "pt": "iniciar sessão"
     },
+    "mainnav:about": {
+        "nl": null,
+        "la": null,
+        "en": "about",
+        "sl": null,
+        "de": null,
+        "fr": "sur nous",
+        "it": null,
+        "pt": "sobre"
+    },
+    "mainnav:contact": {
+        "nl": null,
+        "la": null,
+        "en": "contact",
+        "sl": null,
+        "de": null,
+        "fr": "contact",
+        "it": null,
+        "pt": "contacto"
+    },
     "mainnav:home": {
         "nl": "",
         "la": "",
@@ -28,6 +48,16 @@
         "fr": "Démarrer",
         "it": "",
         "pt": "inicio"
+    },
+    "mainnav:products": {
+        "nl": null,
+        "la": null,
+        "en": "products",
+        "sl": null,
+        "de": null,
+        "fr": "les produits",
+        "it": null,
+        "pt": "produtos"
     },
     "members:login:fyp": {
         "nl": null,
@@ -68,6 +98,16 @@
         "fr": "entrer",
         "it": null,
         "pt": "entrar"
+    },
+    "members:logout-button": {
+        "nl": null,
+        "la": null,
+        "en": "log out",
+        "sl": null,
+        "de": null,
+        "fr": "se déconnecter",
+        "it": null,
+        "pt": "encerrar sessão"
     },
     "members:register:address": {
         "nl": null,
@@ -198,35 +238,5 @@
         "fr": "mot de passe",
         "it": null,
         "pt": "palavra-passe"
-    },
-    "mainnav:products": {
-        "nl": null,
-        "la": null,
-        "en": "products",
-        "sl": null,
-        "de": null,
-        "fr": "les produits",
-        "it": null,
-        "pt": "produtos"
-    },
-    "mainnav:about": {
-        "nl": null,
-        "la": null,
-        "en": "about",
-        "sl": null,
-        "de": null,
-        "fr": "sur nous",
-        "it": null,
-        "pt": "sobre"
-    },
-    "mainnav:contact": {
-        "nl": null,
-        "la": null,
-        "en": "contact",
-        "sl": null,
-        "de": null,
-        "fr": "contact",
-        "it": null,
-        "pt": "contacto"
     }
 }

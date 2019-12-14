@@ -4,27 +4,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The title</title>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <style></style>
+        <style>
+            #locale-switcher-wrapper ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <header class="w3-container w3-red">
             <h1>The title</h1>
         </header>
-        <ul class="w3-bar" style="">
-            <li><a href="/pt/" title='' class="w3-bar-item w3-button w3-mobile">Inicio</a></li>
-            <li>
-                <a href="/pt/pages" title='' class=''>Páginas</a>
-                <ul>
-                    <li>
-                        <a href="/pt/about" title='Tudo sobre nos'>Sobre</a>
-                    </li>
-                    <li>
-                        <a href="/pt/contact" title='Nossa pagina de contacto'>Contacto</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/pt/products" title='' class=''>Produtos</a></li>
-            <li><a href="/pt/members?from=mainmenu" title=''>Iniciar sessão</a></li>
-        </ul>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Dropdown</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card">
+                <div id="locale-switcher-wrapper" class="w3-panel">
+                    {{ localeswitcher() }}
+                </div>
+            </div>
+        </div>
     </body>
 </html>
