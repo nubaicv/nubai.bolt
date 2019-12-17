@@ -24,13 +24,13 @@ class CustomersRepository extends Repository {
     
     public function verifyCredentials($email, $password) {
         
-        $customer = $this->findBy(['email' => $email, 'password' => $password]);
+        $entity = $this->findBy(['email' => $email, 'password' => $password]);
         
-        if (!$customer) {
+        if (!$entity) {
             return false;
         }
         
-        return $customer;
+        return $entity;
     }
     
     public function registerCustomer($data) {
@@ -50,6 +50,27 @@ class CustomersRepository extends Repository {
         }
     }
     
+    public function createPasswordRecoveryCode($email) {
+        
+        $entity = $this->findOneBy(['email' => $email]);
+        $code = bin2hex(random_bytes(20));
+        $entity->setDatechanged(new \DateTime);
+        $entity->setPassword_recovery_code($code);
+        
+        try {
+            
+            if($this->save($entity)) {
+                return $code;
+            } else {
+                return false;
+            }
+        } catch (Exception $ex) {
+            
+            return $ex;
+        }
+    }
+
+
     
     // -----------------------------------------------------------------
     public function createQueryBuilder($alias = null) {

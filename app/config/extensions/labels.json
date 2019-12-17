@@ -29,6 +29,16 @@
         "it": null,
         "pt": "iniciar sessão"
     },
+    "header:myaccountbutton": {
+        "nl": null,
+        "la": null,
+        "en": "my account",
+        "sl": null,
+        "de": null,
+        "fr": "mon compte",
+        "it": null,
+        "pt": "minha conta"
+    },
     "mainnav:about": {
         "nl": null,
         "la": null,
@@ -119,6 +129,36 @@
         "it": null,
         "pt": "encerrar sessão"
     },
+    "members:modal01:message": {
+        "nl": null,
+        "la": null,
+        "en": "give us your email address and we will send you an unique recovery link",
+        "sl": null,
+        "de": null,
+        "fr": "donnez-nous votre adresse e-mail et nous vous enverrons un lien de récupération unique",
+        "it": null,
+        "pt": "informe seu endereço de e-mail e enviaremos um link de recuperação exclusivo"
+    },
+    "members:modal01:submit": {
+        "nl": null,
+        "la": null,
+        "en": "send link",
+        "sl": null,
+        "de": null,
+        "fr": "envoyer le lien",
+        "it": null,
+        "pt": "enviar o link"
+    },
+    "members:prc:uniquelinksent": {
+        "nl": null,
+        "la": null,
+        "en": "unique link sent",
+        "sl": null,
+        "de": null,
+        "fr": "lien unique envoyé",
+        "it": null,
+        "pt": "link exclusivo enviado"
+    },
     "members:register:address": {
         "nl": null,
         "la": null,
@@ -132,7 +172,7 @@
     "members:register:apelidos": {
         "nl": null,
         "la": null,
-        "en": "surname",
+        "en": "last name",
         "sl": null,
         "de": null,
         "fr": "nom de famille",
@@ -192,7 +232,7 @@
     "members:register:nome": {
         "nl": null,
         "la": null,
-        "en": "name",
+        "en": "first name",
         "sl": null,
         "de": null,
         "fr": "prénom",
@@ -258,5 +298,15 @@
         "fr": "économisez",
         "it": null,
         "pt": "poupa"
+    },
+    "members:prc:invalidemail": {
+        "nl": null,
+        "la": null,
+        "en": "sorry, the provided email address is not registered in our service",
+        "sl": null,
+        "de": null,
+        "fr": "désolé, l'adresse e-mail fournie n'est pas enregistrée dans notre service",
+        "it": null,
+        "pt": "desculpe, o endereço de e-mail fornecido não está registrado em nosso serviço"
     }
 }

@@ -15,4 +15,16 @@ $(document).ready( function(){
         
         $('#localeswitcher-small').toggleClass('w3-show');
     });
+    
+    //modals
+    $('#link-fyp').click(function(){
+        
+        $('#modal01').show();
+    });
+    
+    $('#close-modal01').click(function(){
+        
+        $('#modal01').hide();
+    });
+    // ----------------------------------------------------------------------
 });

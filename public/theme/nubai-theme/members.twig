@@ -3,69 +3,75 @@
 {% block main %}
     <div class="">
         <div class="w3-row row-login-register">
+            {{ include('partials/_flashbag_catcher.twig') }}
             <div class="w3-col l6">
-                <form id="form-login" method="post" action="{{ path('logincontroller') }}" class="w3-container">
-                    <div class="form-elements-wrapper">
+                <form id="form-login" method="post" action="{{ path('logincontroller') }}">
+                    <div class="form-elements-wrapper w3-container w3-padding-16">
                         <h2>{{ l('members:login:is') }}</h2>
                         <fieldset>
                             <legend><em>{{ l('members:login:ipis')|capitalize }}</em></legend>
                             <label for="email">Email</label>
-                            <input id="email" type="email" name="email" placeholder="Email" class="w3-input">
+                            <input id="email" type="email" name="email" placeholder="Email" class="w3-input w3-border">
                             <label for="password">Password</label>
-                            <input id="password" type="password" name="password" placeholder="{{ l('palavra:password')|capitalize }}" class="w3-input">
+                            <input id="password" type="password" name="password" placeholder="{{ l('palavra:password')|capitalize }}" class="w3-input w3-border">
                         </fieldset>
                         <div>
-                            <button type="submit" class="w3-mobile">{{ l('members:login:submit')|capitalize }}</button>
-                            <p><a href="javascript:void(0);">{{ l('members:login:fyp')|capitalize }}</a></p>
+                            <button type="submit" class="w3-btn w3-teal w3-mobile">{{ l('members:login:submit')|capitalize }}</button>
+                            <p><a id="link-fyp" href="javascript:void(0);">{{ l('members:login:fyp')|capitalize }}</a></p>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="w3-col l6">
-                <form id="form-register" method="post" action="{{ path('registercontroller') }}" class="w3-container">
-                    <div class="form-elements-wrapper">
+                <form id="form-register" method="post" action="{{ path('registercontroller') }}">
+                    <div class="form-elements-wrapper w3-container w3-padding-16">
                         <h2>{{ l('members:register:criarconta')|capitalize }}</h2>
                         <fieldset>
                             <legend><em>{{ l('members:register:dp')|capitalize }}</em></legend>
                             <label for="forename">Nome</label>
-                            <input id="forename" type="text" name="forename" placeholder="{{ l('members:register:nome')|capitalize }}*" class="w3-input">
+                            <input id="forename" type="text" name="forename" placeholder="{{ l('members:register:nome')|capitalize }}*" class="w3-input w3-border">
                             <label for="surname">Apelidos</label>
-                            <input id="surname" type="text" name="surname" placeholder="{{ l('members:register:apelidos')|capitalize }}*" class="w3-input">
+                            <input id="surname" type="text" name="surname" placeholder="{{ l('members:register:apelidos')|capitalize }}*" class="w3-input w3-border">
                             <label for="email">Email</label>
-                            <input id="email" type="email" name="email" placeholder="{{ l('palavra:email')|capitalize }}*" class="w3-input">
+                            <input id="email" type="email" name="email" placeholder="{{ l('palavra:email')|capitalize }}*" class="w3-input w3-border">
                             <label for="password">Palavra-passe nova</label>
-                            <input id="password" type="password" name="password" placeholder="{{ l('members:register:newpass')|capitalize }}*" class="w3-input">
+                            <input id="password" type="password" name="password" placeholder="{{ l('members:register:newpass')|capitalize }}*" class="w3-input w3-border">
                         </fieldset><br>
                         <fieldset>
                             <legend><em>{{ l('members:register:shippingdata')|capitalize }}</em></legend>
                             <label for="address">Endereco</label>
-                            <textarea id="address" name="address" placeholder="{{ l('members:register:address')|capitalize }}" class="w3-input"></textarea>
+                            <textarea id="address" name="address" placeholder="{{ l('members:register:address')|capitalize }}" class="w3-input w3-border"></textarea>
                             <label for="phone">Tel. fixo</label>
-                            <input id="phone" type="text" name="phone" placeholder="{{ l('members:register:phone')|capitalize }}" class="w3-input">
+                            <input id="phone" type="text" name="phone" placeholder="{{ l('members:register:phone')|capitalize }}" class="w3-input w3-border">
                             <label for="cell-phone">Telemovel</label>
-                            <input id="cell-phone" type="text" name="cell-phone" placeholder="{{ l('members:register:cellphone')|capitalize }}" class="w3-input">
+                            <input id="cell-phone" type="text" name="cell-phone" placeholder="{{ l('members:register:cellphone')|capitalize }}" class="w3-input w3-border">
                             <label for="company">Entidade (empresa ou loja)</label>
-                            <input id="company" type="text" name="company" placeholder="{{ l('members:register:entidade')|capitalize }}" class="w3-input">
+                            <input id="company" type="text" name="company" placeholder="{{ l('members:register:entidade')|capitalize }}" class="w3-input w3-border">
                         </fieldset>
                         <!--<div class="g-recaptcha" data-sitekey="6Lfv7TMUAAAAAGKCIiKLksTaWNDoHxqGUOzkydPt"></div>-->
                         <div>
-                            <button type="submit" class="w3-mobile">{{ l('members:register:submit')|capitalize }}</button>
+                            <button type="submit" class="w3-btn w3-teal w3-mobile">{{ l('members:register:submit')|capitalize }}</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div id="wrapper-form-password-recovery" style="display: none">
-                <form id="form-password-recovery">
-                    <div class="form-elements-wrapper lefted-text">
-                        <h2>Recuperar a conta</h2>
-                        <fieldset>
-                            <p>Dê-nos o seu e-mail de inscrição e enviamos-lhe um link de recuperação único</p>
-                            <label for="email">Email</label>
-                            <input id="email" type="email" name="email" placeholder="E-mail">
-                        </fieldset>
-                        <button type="submit">Enviar</button>
+
+            <div class="w3-modal" id="modal01">
+                <div class="w3-modal-content w3-card-4 w3-padding-32">
+                    <div class="w3-container">
+                        <span id="close-modal01" class="w3-button w3-teal w3-display-topright">&times;</span>
+                        <form id="form-password-recovery" class="w3-container" method="post" action="{{ path('passrecoverymessagecontroller') }}">
+                            <div class="form-elements-wrapper">
+                                <fieldset>
+                                    <p>{{ l('members:modal01:message')|capitalize }}</p>
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" name="email" placeholder="{{ l('palavra:email')|capitalize }}" class="w3-input w3-border">
+                                </fieldset>
+                                <button type="submit" class="w3-btn w3-teal w3-mobile">{{ l('members:modal01:submit')|capitalize }}</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

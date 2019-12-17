@@ -45,6 +45,13 @@ div.product-preview {
     margin: 0px 4px 20px 0px;
 }
 
+@media (min-width: 600px) {
+    
+    .form-elements-wrapper {
+        width: 90%;
+    }
+}
+
 @media (min-width: 992px) {
 
     a#logotipo {
@@ -54,6 +61,8 @@ div.product-preview {
     div.product-preview {
         width: 32%;
     }
+    
+    
 }
 
 @media (min-width: 1200px) {
@@ -74,6 +83,15 @@ div.product-preview {
     outline: 0;
     padding: 0;
     margin: 0;
+}
+
+.row-login-register form input,
+.row-login-register form textarea,
+.row-login-register form button {
+    
+    margin-bottom: 16px;
+    margin-top: 16px;
+    font-size: 1.3em;
 }
 
 

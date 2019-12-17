@@ -66,7 +66,7 @@ class FrontendController extends NubaiController {
         // ---------------------------------------------------------------------------------------------
         return $this->render($template, $data_to_template, $globals);
     }
-    
+
     public function members(Request $request) {
 
         if ($this->session()->has('customer') === true) {
@@ -116,7 +116,7 @@ class FrontendController extends NubaiController {
         }
 
         if (!$request->request->filter('email', null, FILTER_VALIDATE_EMAIL)) {
-            
+
             //create error message
             return new \Symfony\Component\Config\Definition\Exception\Exception('invalid email');
         }
@@ -140,20 +140,20 @@ class FrontendController extends NubaiController {
             'cell_phone' => $cell_phone,
             'company' => $company
         ];
-        
+
         $repo = $this->storage()->getRepository('customers');
-        
+
         if (!$repo->emailExists($data['email'])) {
-            
+
             try {
-                
+
                 $repo->registerCustomer($data);
             } catch (Exception $ex) {
-                
+
                 return $ex;
             }
         } else {
-            
+
             //create error message
             return new \Symfony\Component\Config\Definition\Exception\Exception('email already exists');
         }
@@ -167,11 +167,35 @@ class FrontendController extends NubaiController {
         return $this->redirectToRoute('memberspage');
     }
 
-    
-    
-    
-    
-    
+    public function passrecoverymessage(Request $request) {
+
+        $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
+
+        $repo = $this->storage()->getRepository('customers');
+
+        if ($repo->emailExists($email)) {
+
+            try {
+
+                $code = $repo->createPasswordRecoveryCode($email);
+                if ($code) {
+                    
+                    //send email to customer
+                    
+                    $this->session()->getFlashBag()->add('success', 'members:prc:uniquelinksent');
+                    return $this->redirectToRoute('memberspage');
+                }
+            } catch (Exception $ex) {
+
+                return $ex;
+            }
+        } else {
+
+            $this->session()->getFlashBag()->add('error', 'members:prc:invalidemail');
+            return $this->redirectToRoute('memberspage');
+        }
+    }
+
     // -------------------------------------------------------------------------
 
     public function testing(Request $request) {
@@ -185,4 +209,5 @@ class FrontendController extends NubaiController {
 
         return $this->render('testing.twig', $data_to_template);
     }
+
 }

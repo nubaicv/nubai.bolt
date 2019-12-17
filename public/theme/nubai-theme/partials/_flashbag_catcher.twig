@@ -1,0 +1,14 @@
+{% set messages = app.session.flashbag %}
+
+{% for key, message in messages %}
+    {% if key == 'success' %}
+        <div class="w3-panel w3-pale-green w3-bottombar w3-border w3-border-teal">
+            <p class="w3-center">{{ l(message.0)|capitalize }}</p>
+        </div>
+    {% endif %}
+    {% if key == 'error' %}
+        <div class="w3-panel w3-pale-red w3-bottombar w3-border w3-border-red">
+            <p class="w3-center">{{ l(message.0)|capitalize }}</p>
+        </div>
+    {% endif %}
+{% endfor %}

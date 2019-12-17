@@ -80,6 +80,11 @@ registercontroller:
     path: /register
     defaults:
         _controller: controller.frontend:register
+        
+passrecoverymessagecontroller:
+    path: /prmc
+    defaults:
+        _controller: controller.frontend:passrecoverymessage
 
 testingpage:
     path: /testing
