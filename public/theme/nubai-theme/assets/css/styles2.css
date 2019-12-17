@@ -36,12 +36,6 @@ a#logotipo {
     background-image: url("/files/nubai-new-logo-small.png");
 }
 
-#locale-switcher-wrapper ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
 div.product-preview {
     display: inline-block;
     width: 48%;
@@ -55,9 +49,6 @@ div.product-preview {
 
     a#logotipo {
         margin-left: 16px;
-/*        width: 200px;
-        height: 53px;
-        background-image: url("/files/nubai-new-logo-medium.png");*/
     }
 
     div.product-preview {

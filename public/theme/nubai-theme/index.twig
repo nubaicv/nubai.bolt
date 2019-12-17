@@ -3,12 +3,18 @@
 {% block main %}
 
     {% if record is defined %}
+        
+        {% set messages = app.session.flashbag %}
+        
+        {% for message in messages.get('loggedin') %}
+            <div class="w3-panel w3-pale-green w3-bottombar w3-border w3-border-teal">
+                <p class="w3-center">{{ l('flash:loggedin')|capitalize }}</p>
+            </div>
+        {% endfor %}
 
         <h1>{{ record.title }}</h1>
 
         {{ record.maintext }}
-        
-        {{ dump(some_data) }}
 
     {% endif %}
 

@@ -15,7 +15,7 @@
                 {% if product.discount != 0 %}
                     <span>{{ product.price }}$00 ECV</span>
                     <h2>{{ (product.price - (product.price * product.discount / 100))|round }}$00 ECV</h2>
-                    <span><strong>Poupa {{ product.discount }}%</strong></span>
+                    <span class="w3-red" style="padding: 5px"><strong>{{ l('palavra:save')|capitalize }} {{ product.discount }}%</strong></span>
                 {% else %}
                     <h2>{{ product.price }}$00 ECV</h2>
                 {% endif %}

@@ -1,6 +1,6 @@
-<div id="nav-main-wrapper" class="w3-hide-large">
+<div id="main-nav-wrapper" class="w3-hide-large w3-hide w3-animate-top">
     <div class="w3-row w3-teal">
-        <div class="w3-third">
+        <div class="w3-col m5">
             <div class="w3-bar-block">
                 <a href="{{ path('homepage') }}" class="w3-bar-item w3-button w3-padding-16 w3-center"><i class="fas fa-home"></i></a>
                 <a href="{{ path('homeproducts') }}" class="w3-bar-item w3-button w3-padding-16 w3-center">{{ l('mainnav:products')|capitalize }}</a>
@@ -10,33 +10,28 @@
                 <a href="{{ path('pagebinding', parameters) }}" class="w3-bar-item w3-button w3-padding-16 w3-center">{{ l('mainnav:contact')|capitalize }}</a>
             </div>
         </div>
-        <div class="w3-twothird">
+        <div class="w3-col m7">
             <div class="w3-bar-block">
+
                 {% if not app.session.get('customer') %}
-                    <a href="{{ path('memberspage') }}" class="w3-bar-item w3-button w3-padding-16 w3-center w3-xlarge">{{ l('members:login:submit')|capitalize }} <i class="fas fa-sign-in-alt"></i></a>
-                {% else %}
-                    <div class="w3-dropdown-hover">
-                        <button class="w3-bar-item w3-button w3-teal w3-padding-16 w3-center">{{ app.session.get('customer').email }} <i class="fas fa-sort-down"></i></button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card w3-center" style="right: 0">
-                            <div class="w3-panel w3-text-teal">
-                                <a href="{{ path('logoutcontroller') }}" class="w3-bar-item">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a>
-                                <a href="{{ path('logoutcontroller') }}" class="w3-bar-item">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a>
-                                <a href="{{ path('logoutcontroller') }}" class="w3-bar-item">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a>
-                                <a href="{{ path('logoutcontroller') }}" class="w3-bar-item">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a>
-                                <a href="{{ path('logoutcontroller') }}" class="w3-bar-item">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a>
-                            </div>
-                        </div>
+                    <a href="{{ path('memberspage') }}" class="w3-bar-item w3-button w3-padding-16 w3-center">{{ l('members:login:submit')|capitalize }} <i class="fas fa-sign-in-alt"></i></a>
+                    {% else %}
+
+                    <button id="show-customer-menu-small" class="w3-bar-item w3-button w3-teal w3-padding-16 w3-center">{{ app.session.get('customer').email }} <i class="fas fa-sort-down"></i></button>
+                    <div id="customer-menu-small" class="w3-white w3-text-teal w3-hide" style="right: 0">
+                        <ul class="w3-ul">
+                            <li><a class="w3-bar-item w3-button w3-center" href="#">Profile <i class="fas fa-cog"></i></a></li>
+                            <li><a class="w3-bar-item w3-button w3-center" href="{{ path('logoutcontroller') }}">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a></li>
+                        </ul>
+
                     </div>
                 {% endif %}
-                
-                <div class="w3-dropdown-hover">
-                    <button class="w3-bar-item w3-button w3-teal w3-padding-16 w3-center">{{ getlanguage()|upper }} <i class="fas fa-sort-down"></i></button>
-                    <div class="w3-dropdown-content w3-bar-block w3-card w3-center" style="right: 0">
-                        <div id="locale-switcher-wrapper" class="w3-panel w3-text-teal">
-                            {{ localeswitcher() }}
-                        </div>
-                    </div>
+
+                <button id="show-localeswitcher-small" class="w3-bar-item w3-button w3-teal w3-padding-16 w3-center">{{ getlanguage()|upper }} <i class="fas fa-sort-down"></i></button>
+                <div id="localeswitcher-small" class="w3-white w3-text-teal w3-hide" style="right: 0">
+                    {{ localeswitcher(classes = 'w3-ul') }}
                 </div>
+
             </div>
         </div>
     </div>

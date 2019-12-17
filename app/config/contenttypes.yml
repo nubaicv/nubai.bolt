@@ -191,6 +191,8 @@ subcategories:
             label: Nome da subcategoria
             type: text
             class: large
+            translatable: true
+            group: Geral
             required: true
         Category:
             label: Categoria
@@ -200,6 +202,23 @@ subcategories:
         slug:
             type: slug
             uses: name
+        locale:
+            type: locale
+        ptdata:
+            type: hidden
+        ptslug:
+            type: locale_data
+            index: true
+        endata:
+            type: hidden
+        enslug:
+            type: locale_data
+            index: true
+        frdata:
+            type: hidden
+        frslug:
+            type: locale_data
+            index: true
     viewless: false
     default_status: published
     record_template: product-by-subcategory.twig

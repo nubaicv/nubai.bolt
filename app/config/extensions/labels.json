@@ -9,6 +9,16 @@
         "it": "",
         "pt": "pesquisar produtos"
     },
+    "flash:loggedin": {
+        "nl": null,
+        "la": null,
+        "en": "logged in successfully",
+        "sl": null,
+        "de": null,
+        "fr": "connecté avec succès",
+        "it": null,
+        "pt": "conectado com sucesso"
+    },
     "header:loginbutton": {
         "nl": null,
         "la": null,
@@ -95,9 +105,9 @@
         "en": "log in",
         "sl": null,
         "de": null,
-        "fr": "entrer",
+        "fr": "connexion",
         "it": null,
-        "pt": "entrar"
+        "pt": "iniciar sessão"
     },
     "members:logout-button": {
         "nl": null,
@@ -238,5 +248,15 @@
         "fr": "mot de passe",
         "it": null,
         "pt": "palavra-passe"
+    },
+    "palavra:save": {
+        "nl": null,
+        "la": null,
+        "en": "save",
+        "sl": null,
+        "de": null,
+        "fr": "économisez",
+        "it": null,
+        "pt": "poupa"
     }
 }

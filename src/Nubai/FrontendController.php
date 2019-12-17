@@ -98,6 +98,7 @@ class FrontendController extends NubaiController {
         if ($customer) {
 
             $this->session()->set('customer', $customer[0]);
+            $this->session()->getFlashBag()->add('loggedin', '');
         } else {
 
             return $this->redirectToRoute('memberspage', ['from' => 'failedlogin']);
