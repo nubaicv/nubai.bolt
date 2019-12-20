@@ -97,11 +97,12 @@ class FrontendController extends NubaiController {
 
         if ($customer) {
 
-            $this->session()->set('customer', $customer[0]);
-            $this->session()->getFlashBag()->add('loggedin', '');
+            $this->session()->set('customer', $customer);
+            $this->session()->getFlashBag()->add('success', 'members:login:loggedin');
         } else {
-
-            return $this->redirectToRoute('memberspage', ['from' => 'failedlogin']);
+            
+            $this->session()->getFlashBag()->add('error', 'members:login:loginfailed');
+            return $this->redirectToRoute('memberspage');
         }
 
         return $this->redirectToRoute('homepage');
@@ -117,14 +118,21 @@ class FrontendController extends NubaiController {
 
         if (!$request->request->filter('email', null, FILTER_VALIDATE_EMAIL)) {
 
-            //create error message
-            return new \Symfony\Component\Config\Definition\Exception\Exception('invalid email');
+            $this->session()->getFlashBag()->add('error', 'members:register:invalidemail');
+            return $this->redirectToRoute('memberspage');
         }
+        $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
+
+        if (!$request->request->filter('password', null, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/']])) {
+
+            $this->session()->getFlashBag()->add('error', 'members:register:invalidpassword');
+            return $this->redirectToRoute('memberspage');
+        }
+
 
         $forename = $request->request->filter('forename', null, FILTER_SANITIZE_STRING);
         $surname = $request->request->filter('surname', null, FILTER_SANITIZE_STRING);
-        $password = $request->request->filter('password', null, FILTER_SANITIZE_STRING);
-        $email = $request->request->filter('email', null, FILTER_SANITIZE_EMAIL);
+        $password = password_hash($request->request->filter('password', null, FILTER_SANITIZE_STRING), PASSWORD_BCRYPT) ;
         $address = $request->request->filter('address', null, FILTER_SANITIZE_STRING);
         $phone = $request->request->filter('phone', null, FILTER_SANITIZE_STRING);
         $cell_phone = $request->request->filter('cell-phone', null, FILTER_SANITIZE_STRING);
@@ -147,15 +155,22 @@ class FrontendController extends NubaiController {
 
             try {
 
-                $repo->registerCustomer($data);
+                $emailverificationcode = $repo->registerCustomer($data);
+                if ($emailverificationcode) {
+                    
+                    // send email to customer
+
+                    $this->session()->getFlashBag()->add('success', 'members:register:registered');
+                    return $this->redirectToRoute('memberspage');
+                }
             } catch (Exception $ex) {
 
                 return $ex;
             }
         } else {
 
-            //create error message
-            return new \Symfony\Component\Config\Definition\Exception\Exception('email already exists');
+            $this->session()->getFlashBag()->add('error', 'members:register:emailexists');
+            return $this->redirectToRoute('memberspage');
         }
 
         return $this->redirectToRoute('memberspage');
@@ -179,9 +194,9 @@ class FrontendController extends NubaiController {
 
                 $code = $repo->createPasswordRecoveryCode($email);
                 if ($code) {
-                    
+
                     //send email to customer
-                    
+
                     $this->session()->getFlashBag()->add('success', 'members:prc:uniquelinksent');
                     return $this->redirectToRoute('memberspage');
                 }

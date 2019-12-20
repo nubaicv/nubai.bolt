@@ -109,6 +109,26 @@
         "it": null,
         "pt": "Inicia sessão no Nubai"
     },
+    "members:login:loggedin": {
+        "nl": "",
+        "la": "",
+        "en": "Logged in successfully",
+        "sl": "",
+        "de": "",
+        "fr": "Connecté avec succès",
+        "it": "",
+        "pt": "Conectado com sucesso"
+    },
+    "members:login:loginfailed": {
+        "nl": "",
+        "la": "",
+        "en": "Incorrect email or password",
+        "sl": "",
+        "de": "",
+        "fr": "E-mail ou mot de passe incorrect",
+        "it": "",
+        "pt": "Email ou senha incorretos"
+    },
     "members:login:submit": {
         "nl": null,
         "la": null,
@@ -148,6 +168,16 @@
         "fr": "envoyer le lien",
         "it": null,
         "pt": "enviar o link"
+    },
+    "members:prc:invalidemail": {
+        "nl": null,
+        "la": null,
+        "en": "Sorry, the provided email address is not registered in our service",
+        "sl": null,
+        "de": null,
+        "fr": "Désolé, l'adresse e-mail fournie n'est pas enregistrée dans notre service",
+        "it": null,
+        "pt": "Desculpe, o endereço de e-mail fornecido não está registrado em nosso serviço"
     },
     "members:prc:uniquelinksent": {
         "nl": null,
@@ -209,6 +239,16 @@
         "it": null,
         "pt": "dados pessoais"
     },
+    "members:register:emailexists": {
+        "nl": null,
+        "la": null,
+        "en": "Sorry, the provided email address is already registered in our service. Please try the password recovery option",
+        "sl": null,
+        "de": null,
+        "fr": "Désolé, l'adresse e-mail fournie est déjà enregistrée dans notre service. Veuillez essayer l'option de récupération de mot de passe",
+        "it": null,
+        "pt": "Desculpe, o endereço de e-mail fornecido já está registrado em nosso serviço. Por favor, tente a opção de recuperação de senha"
+    },
     "members:register:entidade": {
         "nl": null,
         "la": null,
@@ -218,6 +258,26 @@
         "fr": "entreprise",
         "it": null,
         "pt": "entidade"
+    },
+    "members:register:invalidemail": {
+        "nl": null,
+        "la": null,
+        "en": "Sorry, the provided email address is not a valid one",
+        "sl": null,
+        "de": null,
+        "fr": "Désolé, l'adresse e-mail fournie n'est pas valide",
+        "it": null,
+        "pt": "Desculpe, o endereço de email fornecido não é válido"
+    },
+    "members:register:invalidpassword": {
+        "nl": null,
+        "la": null,
+        "en": "Sorry, the password you provided does not meet the minimum requirements",
+        "sl": null,
+        "de": null,
+        "fr": "Désolé, le mot de passe que vous avez fourni ne répond pas aux exigences minimales",
+        "it": null,
+        "pt": "Desculpe, a senha que você forneceu não atende aos requisitos mínimos"
     },
     "members:register:newpass": {
         "nl": null,
@@ -248,6 +308,16 @@
         "fr": "numéro de téléphone",
         "it": null,
         "pt": "telefone"
+    },
+    "members:register:registered": {
+        "nl": null,
+        "la": null,
+        "en": "Congratulations, your account has been successfully created. We sent an email message with instructions for activation. Please, verify your inbox",
+        "sl": null,
+        "de": null,
+        "fr": "Félicitations, votre compte a été créé avec succès. Nous avons envoyé un e-mail avec des instructions pour l'activation. Veuillez vérifier votre boîte de réception",
+        "it": null,
+        "pt": "Parabéns, sua conta foi criada com sucesso. Enviamos uma mensagem de email com instruções para ativação. Verifique sua caixa de entrada"
     },
     "members:register:shippingdata": {
         "nl": null,
@@ -298,15 +368,5 @@
         "fr": "économisez",
         "it": null,
         "pt": "poupa"
-    },
-    "members:prc:invalidemail": {
-        "nl": null,
-        "la": null,
-        "en": "sorry, the provided email address is not registered in our service",
-        "sl": null,
-        "de": null,
-        "fr": "désolé, l'adresse e-mail fournie n'est pas enregistrée dans notre service",
-        "it": null,
-        "pt": "desculpe, o endereço de e-mail fornecido não está registrado em nosso serviço"
     }
 }

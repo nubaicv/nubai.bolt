@@ -24,9 +24,13 @@ class CustomersRepository extends Repository {
     
     public function verifyCredentials($email, $password) {
         
-        $entity = $this->findBy(['email' => $email, 'password' => $password]);
+        $entity = $this->findOneBy(['email' => $email,]);
         
         if (!$entity) {
+            return false;
+        }
+        
+        if (!password_verify($password, $entity->getPassword())) {
             return false;
         }
         
@@ -38,12 +42,15 @@ class CustomersRepository extends Repository {
         $entity = $this->create($data);
         $entity->setDatecreated(new \DateTime);
         $entity->setDatechanged(new \DateTime);
-        $entity->setEmail_verification_code(bin2hex(random_bytes(20)));
+        $emailverificationcode = bin2hex(random_bytes(20));
+        $entity->setEmail_verification_code($emailverificationcode);
         $entity->setActivated(0);
         
         try {
             
-            return $this->save($entity);
+            if($this->save($entity)) {
+                return $emailverificationcode;
+            }
         } catch (Exception $ex) {
             
             return $ex;
@@ -53,14 +60,14 @@ class CustomersRepository extends Repository {
     public function createPasswordRecoveryCode($email) {
         
         $entity = $this->findOneBy(['email' => $email]);
-        $code = bin2hex(random_bytes(20));
+        $passwordrecoverycode = bin2hex(random_bytes(20));
         $entity->setDatechanged(new \DateTime);
-        $entity->setPassword_recovery_code($code);
+        $entity->setPassword_recovery_code($passwordrecoverycode);
         
         try {
             
             if($this->save($entity)) {
-                return $code;
+                return $passwordrecoverycode;
             } else {
                 return false;
             }

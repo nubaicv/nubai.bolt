@@ -20,8 +20,8 @@
                     <button id="show-customer-menu-small" class="w3-bar-item w3-button w3-teal w3-padding-16 w3-center">{{ app.session.get('customer').email }} <i class="fas fa-sort-down"></i></button>
                     <div id="customer-menu-small" class="w3-white w3-text-teal w3-hide" style="right: 0">
                         <ul class="w3-ul">
-                            <li><a class="w3-bar-item w3-button w3-center" href="#">Profile <i class="fas fa-cog"></i></a></li>
-                            <li><a class="w3-bar-item w3-button w3-center" href="{{ path('logoutcontroller') }}">{{ l('members:logout-button')|capitalize }} <i class="fas fa-sign-out-alt"></i></a></li>
+                            <li><a class="w3-bar-item w3-button" href="#"><i class="fas fa-cog"></i> Profile</a></li>
+                            <li><a class="w3-bar-item w3-button" href="{{ path('logoutcontroller') }}"><i class="fas fa-sign-out-alt"></i> {{ l('members:logout-button')|capitalize }}</a></li>
                         </ul>
 
                     </div>
