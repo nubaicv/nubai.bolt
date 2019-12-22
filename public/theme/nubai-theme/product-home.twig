@@ -3,27 +3,31 @@
 {% block main %}
     <div>
         {% for product in records %}
-            <div class="product-preview w3-mobile w3-card">
+            <div class="product-preview w3-mobile w3-border">
                 <a href="{{ product.link }}">
                     {% for image in product.images %}
                         {% if loop.first %}
                             <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}">
                         {% endif %}
                     {% endfor %}
-                    <h3>{{ product.title }}</h3>
                 </a>
-                {% if product.discount != 0 %}
-                    <span>{{ product.price }}$00 ECV</span>
-                    <h2>{{ (product.price - (product.price * product.discount / 100))|round }}$00 ECV</h2>
-                    <span class="w3-red" style="padding: 5px"><strong>{{ l('palavra:save')|capitalize }} {{ product.discount }}%</strong></span>
-                {% else %}
-                    <h2>{{ product.price }}$00 ECV</h2>
-                {% endif %}
-                {% setcontent subcategory = 'subcategories' where { id: product.subcategory } %}
-                <p>
-                    <a href="{{ subcategory.link }}">/ {{ subcategory.name }} /</a>
-                </p>
-                {{ include('partials/_recordfooter.twig') }}                
+                <div class="product-preview-details">
+                    <span class="product-title w3-large"><a href="{{ product.link }}">{{ product.title }}</a></span><br>
+                        {% if product.discount != 0 %}
+                        <div class="product-prices w3-padding-16">
+                            <span class="product-old-price w3-text-gray">{{ product.price }}$00 ECV</span><br>
+                            <span class="product-price w3-xlarge">{{ (product.price - (product.price * product.discount / 100))|round }}$00 ECV</span><br>
+                            <span class="product-discount w3-red"><strong>{{ l('palavra:save')|capitalize }} {{ product.discount }}%</strong></span><br>
+                        </div>
+                    {% else %}
+                        <div class="product-prices w3-padding-16">
+                            <span class="product-price w3-xlarge">{{ product.price }}$00 ECV</span><br>
+                        </div>
+                    {% endif %}
+                    {% setcontent subcategory = 'subcategories' where { id: product.subcategory } %}
+                    <span class="w3-small"><a href="{{ subcategory.link }}">/ {{ subcategory.name }} /</a></span><br>
+                    {{ include('partials/_recordfooter.twig') }}
+                </div>
             </div>
         {% endfor %}
         {{ pager(template = 'partials/_sub_pager.twig') }}

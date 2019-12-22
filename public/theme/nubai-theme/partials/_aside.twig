@@ -1,20 +1,8 @@
 <!-- Sidebar -->
-<aside class="row">
-    <div class="col-md-12">
-        <div id="search-input-wrapper">
-            <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-                <div class="search">
-                    <div>
-
-                        <input type="text" value="{{ search|default() }}" name="search" class="w3-input w3-border" placeholder="{{ l('aside:searchinput')|capitalize }}" required>
-
-                    </div>
-                </div>
-            </form>
-        </div>
-        {% if app.session.get('customer') %}
-            {{ dump(app.session.get('customer')) }}
-        {% endif %}
-    </div>
+<aside class="w3-container">
+    <p>Aside content</p>
+    {% if app.session.get('customer') %}
+        {{ dump(app.session.get('customer')) }}
+    {% endif %}
 </aside>
 <!-- End Sidebar -->

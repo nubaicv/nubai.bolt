@@ -368,5 +368,15 @@
         "fr": "économisez",
         "it": null,
         "pt": "poupa"
+    },
+    "product:record:addtocartbutton": {
+        "nl": null,
+        "la": null,
+        "en": "add to cart",
+        "sl": null,
+        "de": null,
+        "fr": "ajouter au chariot",
+        "it": null,
+        "pt": "Adicionar ao carrinho"
     }
 }

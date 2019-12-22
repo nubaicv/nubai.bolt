@@ -1,31 +1,63 @@
 {% extends 'partials/_master_products.twig' %}
 
 {% block main %}
-    <div class="w3-row-padding">
-        <div class="w3-col">
-            <h2>{{ product.title }}</h2>
+    <div class="">
+
+        <div class="w3-padding-16">
+            <h3>{{ product.title }}</h3>
         </div>
-        <div class="w3-col l5">
-            <ul id="lightSlider">
-                {% for image in product.images %}
-                    <li>
-                        <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}">
-                    </li>
-                {% endfor %}
-            </ul>
+
+        <div class="w3-row">
+
+            <div class="w3-col m6">
+                <ul id="lightSlider">
+                    {% for image in product.images %}
+                        <li>
+                            <img src="{{ paths.files }}{{ image.filename }}" alt="{{ image.filename }}">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="w3-col m6">
+                {{ product.description }}
+            </div>
         </div>
-        <div class="w3-col l4">{{ product.description }}</div>
-        <div id="numbers-box" class="w3-col l3">
-            {% if product.discount != 0 %}
-                <span>{{ product.price }}$00 ECV</span> <span>- {{ product.discount }}%</span>
-                <h2>{{ product.price - (product.price * product.discount / 100) }}$00 ECV</h2>
-                <p>Em stock: {{ product.stock }}</p>
-            {% else %}
-                <h2>{{ product.price }}$00 ECV</h2>
-                <p>Em stock: {{ product.stock }}</p>
-            {% endif %}
-            {{ include('partials/_recordfooter.twig') }}
+            
+        <div class="w3-row">
+            
+            <div class="w3-col m6 w3-padding-16">
+
+                <div class="w3-center">
+                    {{ include('partials/_recordfooter.twig') }}
+                </div>
+
+            </div>
+
+            <div class="w3-col m6 w3-padding-16">
+
+                <div class="product-preview-details w3-container w3-center w3-border w3-pale-green w3-padding-16 ">
+
+                    {% if product.discount != 0 %}
+                        <div class="product-prices w3-padding-16">
+                            <span class="product-old-price w3-text-gray">{{ product.price }}$00 ECV</span> <span class="w3-red" style="padding: 3px">-{{ product.discount }}%</span><br>
+                            <span class="product-price w3-xlarge">{{ product.price - (product.price * product.discount / 100) }}$00 ECV</span><br>
+                        </div>
+                        <span class="product-avalability">Em stock: {{ product.stock }}</span><br>
+                    {% else %}
+                        <div class="product-prices">
+                            <span class="product-price w3-xlarge">{{ product.price }}$00 ECV</span><br>
+                        </div>
+                        <span>Em stock: {{ product.stock }}</span><br>
+                    {% endif %}
+
+                    <button class="w3-btn w3-large w3-teal"><i class="fas fa-cart-arrow-down"></i> {{ l('product:record:addtocartbutton')|capitalize }}</button>
+                </div>
+
+            </div>
+
         </div>
+
     </div>
     {#{{ dump(product) }}#}
 {% endblock main %}

@@ -28,11 +28,23 @@
 
                     {{ include('partials/_main_navegation.twig') }}
 
+                    <div id="search-input-wrapper" class="w3-container w3-padding-16 w3-hide-large">
+                        <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
+                            <div class="search">
+                                <div>
+
+                                    <input type="text" value="{{ search|default() }}" name="search" class="w3-input w3-border" placeholder="{{ l('aside:searchinput')|capitalize }}" required>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                     <div id="section-center" class="w3-container w3-padding-16">
 
-                        <div class="w3-row-padding">
+                        <div class="w3-row">
 
-                            <div id="aside-wrapper" class="w3-col l3">
+                            <div id="aside-wrapper" class="w3-col l3 w3-hide-small w3-hide-medium">
                                 {{ include('partials/_aside.twig') }}
                             </div>
 

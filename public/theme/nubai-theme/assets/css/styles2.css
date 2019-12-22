@@ -40,9 +40,20 @@ div.product-preview {
     display: inline-block;
     width: 48%;
     vertical-align: top;
-    padding: 4px;
     overflow: hidden;
     margin: 0px 4px 20px 0px;
+}
+
+div.product-preview-details {
+    padding: 4px;
+}
+
+div.product-preview-details .product-old-price {
+    text-decoration: line-through;
+}
+
+div.product-preview-details .product-discount {
+    padding: 4px;
 }
 
 @media (min-width: 600px) {
