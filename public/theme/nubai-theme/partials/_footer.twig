@@ -12,6 +12,33 @@
 <script src="{{ asset("assets/js/fontawesome/all.js", "theme") }}"></script>
 <script src="{{ asset('assets/js/scripts.js', 'theme') }}"></script>
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("form#add-to-cart").on("submit", function (event) {
+
+            event.preventDefault();
+            var formData = new FormData(this);
+
+            $.ajax({
+                type: 'POST',
+                url: '/{{ getlanguage() }}/testing',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //$('#modal-addtocartsuccess #data1').text(data.nome);
+                    $('#modal-addtocartsuccess').show();
+                },
+                error: function (data) {
+                    //$('#modal-addtocartfail #data1').text(data.nome);
+                    $('#modal-addtocartfail').show();
+                }
+            });
+        });
+    });
+
+
     $('#lightSlider').lightSlider({
         item: 1,
         loop: true,

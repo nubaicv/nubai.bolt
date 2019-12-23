@@ -18,13 +18,13 @@
                     <span class="product-title w3-large"><a href="{{ product.link }}">{{ product.title }}</a></span><br>
                         {% if product.discount != 0 %}
                         <div class="product-prices w3-padding-16">
-                            <span class="product-old-price w3-text-gray">{{ product.price }}$00 ECV</span><br>
-                            <span class="product-price w3-xlarge">{{ product.price - (product.price * product.discount / 100) }}$00 ECV</span><br>
+                            <span class="product-old-price w3-text-gray">{{ product.price|number_format(2, '$', ',') }} ECV</span><br>
+                            <span class="product-price w3-xlarge">{{ (product.price - (product.price * product.discount / 100))|number_format(2, '$', ',') }}</span> ECV<br>
                             <span class="product-discount w3-red"><strong>{{ l('palavra:save')|capitalize }} {{ product.discount }}%</strong></span><br>
                         </div>
                     {% else %}
                         <div class="product-prices w3-padding-16">
-                            <span class="product-price w3-xlarge">{{ product.price }}$00 ECV</span><br>
+                            <span class="product-price w3-xlarge">{{ product.price|number_format(2, '$', ',') }}</span> ECV<br>
                         </div>
                     {% endif %}
                     {{ include('partials/_recordfooter.twig') }}

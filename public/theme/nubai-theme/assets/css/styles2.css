@@ -56,6 +56,13 @@ div.product-preview-details .product-discount {
     padding: 4px;
 }
 
+div.product-preview-details #quantity-selector {
+    padding: 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    
+}
+
 @media (min-width: 600px) {
     
     .form-elements-wrapper {
@@ -74,6 +81,12 @@ div.product-preview-details .product-discount {
     }
     
     
+}
+
+.w3-modal,
+.w3-modal-content {
+    position: relative;
+    z-index: 100
 }
 
 @media (min-width: 1200px) {

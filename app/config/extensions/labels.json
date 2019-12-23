@@ -339,6 +339,46 @@
         "it": null,
         "pt": "regista-te"
     },
+    "modal:addtocartfail": {
+        "nl": "",
+        "la": "",
+        "en": "Failed while adding to cart. Check your internet connection",
+        "sl": "",
+        "de": "",
+        "fr": "A échoué lors de l'ajout au panier. Vérifiez votre connection internet",
+        "it": "",
+        "pt": "Falhou ao adicionar ao carrinho. Verifique a sua conexão com a internet"
+    },
+    "modal:addtocartsuccess": {
+        "nl": "",
+        "la": "",
+        "en": "Added to cart successfully",
+        "sl": "",
+        "de": "",
+        "fr": "Ajouté au panier avec succès",
+        "it": "",
+        "pt": "Adicionado ao carrinho com sucesso"
+    },
+    "modal:somemessage": {
+        "nl": "",
+        "la": "",
+        "en": "in english",
+        "sl": "",
+        "de": "",
+        "fr": "en français",
+        "it": "",
+        "pt": "em português"
+    },
+    "palavra:available": {
+        "nl": null,
+        "la": null,
+        "en": "available",
+        "sl": null,
+        "de": null,
+        "fr": "disponible",
+        "it": null,
+        "pt": "Disponível"
+    },
     "palavra:email": {
         "nl": null,
         "la": null,
@@ -378,5 +418,15 @@
         "fr": "ajouter au chariot",
         "it": null,
         "pt": "Adicionar ao carrinho"
+    },
+    "product:record:notavailable": {
+        "nl": null,
+        "la": null,
+        "en": "out of stock",
+        "sl": null,
+        "de": null,
+        "fr": "En rupture de stock",
+        "it": null,
+        "pt": "sem estoque"
     }
 }

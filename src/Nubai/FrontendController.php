@@ -4,6 +4,8 @@ namespace Bundle\Nubai;
 
 use Bolt\Controller\Frontend as NubaiController;
 use Bolt\Helpers\Input;
+use Bolt\Translation\Translator as Trans;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request as Request;
 use Symfony\Component\HttpFoundation\Response as Response;
 
@@ -214,15 +216,17 @@ class FrontendController extends NubaiController {
     // -------------------------------------------------------------------------
 
     public function testing(Request $request) {
+        
+        $response = new JsonResponse([
+            'nome' => 'ricardo',
+            'apelido' => 'ponce',
+            'text' => Trans::__('clique aqui'),
+            'locale' => $request->getLocale()
+            ]
+        );
+        
+        return $response;
 
-        $data = 'Texto para traduzir';
-
-        $data_to_template = [
-            'title' => 'My title',
-            'data' => $data,
-        ];
-
-        return $this->render('testing.twig', $data_to_template);
     }
 
 }
