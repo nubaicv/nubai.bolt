@@ -37,6 +37,14 @@ class NubaiExtension extends SimpleExtension
                 \Bundle\Nubai\Storage\Entity\Products::class =>
                 \Bundle\Nubai\Storage\Repository\ProductsRepository::class
             ],
+            'orders' => [
+                \Bundle\Nubai\Storage\Entity\Orders::class =>
+                \Bundle\Nubai\Storage\Repository\OrdersRepository::class
+            ],
+            'orderitems' => [
+                \Bundle\Nubai\Storage\Entity\OrderItems::class =>
+                \Bundle\Nubai\Storage\Repository\OrderItemsRepository::class
+            ],
         ];
         
     }
@@ -46,6 +54,8 @@ class NubaiExtension extends SimpleExtension
         return [
             
             'customers' => \Bundle\Nubai\Storage\Schema\Table\Customers::class,
+            'orders' => \Bundle\Nubai\Storage\Schema\Table\Orders::class,
+            'orderitems' => \Bundle\Nubai\Storage\Schema\Table\OrderItems::class,
         ];
     }
 }
