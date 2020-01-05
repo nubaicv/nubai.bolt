@@ -66,6 +66,11 @@ homeproducts:
     requirements:
         contenttypeslug: controller.requirement:pluralContentTypes
         
+cartpage:
+    path: /cart
+    defaults:
+        _controller: controller.frontend:cart
+        
 logincontroller:
     path: /login
     defaults:

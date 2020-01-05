@@ -1,18 +1,18 @@
 <!-- Header -->
 
-<header class="w3-container w3-teal">
+<header id="main-header" class="w3-container w3-teal">
 
     <div class="w3-row">
 
-        <div class="w3-col s8 l4 w3-display-container w3-padding-32">
-            <a id="logotipo" href="{{ path('homepage') }}" class="w3-display-left"></a>
+        <div class="w3-col s6 l4 w3-display-container w3-padding-32">
+            <a id="logotipo" href="{{ path('homepage') }}" class="w3-display-left"><img src="{{ paths.files }}nubai-new-logo-cropped.png" alt="logo"></a>
         </div>
-        <div class="w3-col s4 l8 w3-display-container w3-padding-32">
+        <div class="w3-col s6 l8 w3-display-container w3-padding-32">
 
             <div class="w3-container w3-display-right">
 
                 {% if not app.session.get('customer') %}
-                    <a href="{{ path('memberspage') }}" class="w3-button w3-white w3-text-teal w3-hide-small w3-hide-medium"><i class="fas fa-sign-in-alt"></i> {{ l('members:login:submit')|capitalize }}</a>
+                    <a href="{{ path('memberspage', {'go': canonical()|escape }) }}" class="w3-button w3-white w3-text-teal w3-hide-small w3-hide-medium"><i class="fas fa-sign-in-alt"></i> {{ l('members:login:submit')|capitalize }}</a>
                     {% else %}
                     <div class="w3-dropdown-hover w3-hide-small w3-hide-medium">
                         <button class="w3-button w3-teal w3-hover-teal">{{ app.session.get('customer').email }} <i class="fas fa-sort-down"></i></button>
@@ -26,6 +26,8 @@
                         </div>
                     </div>
                 {% endif %}
+                
+                <a href="{{ path('cartpage') }}" class="w3-button w3-teal w3-hover-teal w3-hide-small w3-hide-medium" id="cart-button"><i class="fas fa-shopping-cart"></i></a>
 
                 <div class="w3-dropdown-hover w3-hide-small w3-hide-medium">
                     <button class="w3-button w3-teal w3-hover-teal">{{ getlanguage()|upper }} <i class="fas fa-sort-down"></i></button>
@@ -35,8 +37,10 @@
                         </div>
                     </div>
                 </div>
+                
+                <a href="{{ path('cartpage') }}" class="w3-button w3-teal w3-hide-large" id="cart-button"><i class="fas fa-shopping-cart fa-2x"></i></a>
 
-                <a href="javascript:void(0);" class="w3-button w3-white w3-text-teal w3-hide-large" id="main-nav-button"><i class="fas fa-bars"></i></a>
+                <a href="javascript:void(0);" class="w3-button w3-teal w3-hide-large" id="main-nav-button"><i class="fas fa-bars fa-2x"></i></a>
             </div>
         </div>
     </div>

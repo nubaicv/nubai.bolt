@@ -3,7 +3,7 @@
 {% block main %}
     <div>
         {% for product in records %}
-            <div class="product-preview w3-mobile w3-border">
+            <div class="product-preview w3-border">
                 <a href="{{ product.link }}">
                     {% for image in product.images %}
                         {% if loop.first %}
@@ -12,16 +12,16 @@
                     {% endfor %}
                 </a>
                 <div class="product-preview-details">
-                    <span class="product-title w3-large"><a href="{{ product.link }}">{{ product.title }}</a></span><br>
+                    <span class="product-title"><a href="{{ product.link }}">{{ product.title }}</a></span><br>
                         {% if product.discount != 0 %}
                         <div class="product-prices w3-padding-16">
-                            <span class="product-old-price w3-text-gray">{{ product.price|number_format(2, '$', ',') }} ECV</span><br>
-                            <span class="product-price w3-xlarge">{{ ((product.price - (product.price * product.discount / 100))|round)|number_format(2, '$', ',') }}</span> ECV<br>
+                            <span class="product-old-price w3-text-gray w3-small">{{ product.price|number_format(2, '$', ',') }} ECV</span><br>
+                            <span class="product-price">{{ ((product.price - (product.price * product.discount / 100))|round)|number_format(2, '$', ',') }}</span> <span class="w3-small">ECV</span><br>
                             <span class="product-discount w3-red"><strong>{{ l('palavra:save')|capitalize }} {{ product.discount }}%</strong></span><br>
                         </div>
                     {% else %}
                         <div class="product-prices w3-padding-16">
-                            <span class="product-price w3-xlarge">{{ product.price|number_format(2, '$', ',') }}</span> ECV<br>
+                            <span class="product-price">{{ product.price|number_format(2, '$', ',') }}</span> <span class="w3-small">ECV</span><br>
                         </div>
                     {% endif %}
                     {% setcontent subcategory = 'subcategories' where { id: product.subcategory } %}

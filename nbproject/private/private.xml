@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/assets/js/scripts.js</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/testing.twig</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/partials/_footer.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/index.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/members.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/index.php</file>
             <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/src/Nubai/FrontendController.php</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/product-record.twig</file>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/assets/css/styles2.css</file>
         </group>
     </open-files>
 </project-private>

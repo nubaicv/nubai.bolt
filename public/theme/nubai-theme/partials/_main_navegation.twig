@@ -14,7 +14,7 @@
             <div class="w3-bar-block">
 
                 {% if not app.session.get('customer') %}
-                    <a href="{{ path('memberspage') }}" class="w3-bar-item w3-button w3-padding-16 w3-center">{{ l('members:login:submit')|capitalize }} <i class="fas fa-sign-in-alt"></i></a>
+                    <a href="{{ path('memberspage', {'go': canonical()|escape }) }}" class="w3-bar-item w3-button w3-padding-16 w3-center">{{ l('members:login:submit')|capitalize }} <i class="fas fa-sign-in-alt"></i></a>
                     {% else %}
 
                     <button id="show-customer-menu-small" class="w3-bar-item w3-button w3-teal w3-padding-16 w3-center">{{ app.session.get('customer').email }} <i class="fas fa-sort-down"></i></button>

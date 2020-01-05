@@ -29,23 +29,23 @@ a:hover {
 }
 
 a#logotipo {
-    width: 180px;
-    height: 48px;
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-image: url("/files/nubai-new-logo-small.png");
+    width: 120px;
 }
 
 div.product-preview {
     display: inline-block;
     width: 48%;
     vertical-align: top;
-    overflow: hidden;
+    overflow: visible;
     margin: 0px 4px 20px 0px;
 }
 
 div.product-preview-details {
     padding: 4px;
+}
+
+div.product-preview-details .product-title {
+    font-size: .7em;
 }
 
 div.product-preview-details .product-old-price {
@@ -60,11 +60,19 @@ div.product-preview-details #quantity-selector {
     padding: 8px;
     display: inline-block;
     border: 1px solid #ccc;
-    
+
 }
 
 @media (min-width: 600px) {
+
+    div.product-preview-details .product-title {
+        font-size: 1em;
+    }
     
+    div.product-preview-details .product-price {
+        font-size: 1.3em;
+    }
+
     .form-elements-wrapper {
         width: 90%;
     }
@@ -79,8 +87,8 @@ div.product-preview-details #quantity-selector {
     div.product-preview {
         width: 32%;
     }
-    
-    
+
+
 }
 
 .w3-modal,
@@ -90,6 +98,10 @@ div.product-preview-details #quantity-selector {
 }
 
 @media (min-width: 1200px) {
+
+    a#logotipo {
+        width: 180px;
+    }
 
     div.product-preview {
         width: 24%;
@@ -112,7 +124,7 @@ div.product-preview-details #quantity-selector {
 .row-login-register form input,
 .row-login-register form textarea,
 .row-login-register form button {
-    
+
     margin-bottom: 16px;
     margin-top: 16px;
     font-size: 1.3em;

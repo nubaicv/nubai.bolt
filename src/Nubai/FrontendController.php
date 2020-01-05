@@ -51,17 +51,10 @@ class FrontendController extends NubaiController {
         // ---------------------------------------------------------------------------------------------
 
         if (!$request->hasPreviousSession() === true) {
-            $this->session()->set('hit', true);
         } else {
-            $this->session()->set('hit', false);
         }
 
-        $this->session()->set('session_id', $this->session()->getId());
-        $this->session()->set('remote_server', $request->server->get('REMOTE_ADDR'));
-        $some_data['attributes'] = $this->session()->all();
-
         $data_to_template = [
-            'some_data' => $some_data
         ];
 
 
@@ -81,6 +74,25 @@ class FrontendController extends NubaiController {
 
         return $this->render('members.twig', $data_to_template);
     }
+    
+    
+    
+    
+    
+    
+    //CART
+    public function cart() {
+        
+        $data_to_template = [
+        ];
+
+        return $this->render('cart.twig', $data_to_template);
+    }
+    
+    
+    
+    
+    
 
     public function login(Request $request) {
 
