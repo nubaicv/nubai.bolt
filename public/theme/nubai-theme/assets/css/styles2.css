@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Dec 12, 2019, 7:55:41 PM
     Author     : ricardo
 */
@@ -56,11 +56,17 @@ div.product-preview-details .product-discount {
     padding: 4px;
 }
 
-div.product-preview-details #quantity-selector {
-    padding: 8px;
-    display: inline-block;
-    border: 1px solid #ccc;
+form#add-to-cart {
+    width: 90%;
+    margin: 0 auto;
+}
 
+form#add-to-cart input,
+form#add-to-cart button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 @media (min-width: 600px) {
@@ -68,7 +74,7 @@ div.product-preview-details #quantity-selector {
     div.product-preview-details .product-title {
         font-size: 1em;
     }
-    
+
     div.product-preview-details .product-price {
         font-size: 1.3em;
     }
@@ -87,8 +93,6 @@ div.product-preview-details #quantity-selector {
     div.product-preview {
         width: 32%;
     }
-
-
 }
 
 .w3-modal,
@@ -105,6 +109,15 @@ div.product-preview-details #quantity-selector {
 
     div.product-preview {
         width: 24%;
+    }
+
+    div#description-wrapper {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    form#add-to-cart {
+        width: 70%;
     }
 }
 

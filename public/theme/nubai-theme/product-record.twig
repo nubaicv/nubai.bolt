@@ -1,4 +1,4 @@
-{% extends 'partials/_master_products.twig' %}
+{% extends 'partials/_master.twig' %}
 
 {% block main %}
     <div class="">
@@ -9,7 +9,7 @@
 
         <div class="w3-row">
 
-            <div class="w3-col m6">
+            <div class="w3-col l4">
                 <ul id="lightSlider">
                     {% for image in product.images %}
                         <li>
@@ -19,22 +19,13 @@
                 </ul>
             </div>
 
-            <div class="w3-col m6">
-                {{ product.description }}
-            </div>
-        </div>
-
-        <div class="w3-row">
-
-            <div class="w3-col m6 w3-padding-16">
-
-                <div class="w3-center">
-                    {{ include('partials/_recordfooter.twig') }}
+            <div class="w3-col l5">
+                <div id="description-wrapper">
+                    {{ product.description }}
                 </div>
-
             </div>
 
-            <div class="w3-col m6 w3-padding-16">
+            <div class="w3-col l3">
 
                 {% if product.stock > 0 %}
 
@@ -81,7 +72,6 @@
                 {% endif %}
 
             </div>
-
         </div>
 
         <div class="w3-modal" id="modal-addtocartsuccess">

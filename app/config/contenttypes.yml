@@ -114,11 +114,13 @@ products:
             label: Nome do produto
             type: text
             class: large
+            translatable: true
             required: true
         Description:
             label: Descricao completa do produto
             type: html
             height: 200px
+            translatable: true
             required: true
 #        Category:
 #            label: Categoria
@@ -150,12 +152,29 @@ products:
             label: Disponibilidade de stock
             type: integer
             required: true
+        locale:
+            type: locale
+        ptdata:
+            type: hidden
+        ptslug:
+            type: locale_data
+            index: true
+        endata:
+            type: hidden
+        enslug:
+            type: locale_data
+            index: true
+        frdata:
+            type: hidden
+        frslug:
+            type: locale_data
+            index: true
     recordsperpage: 20
     record_template: product-record.twig
     listing_template: product-home.twig
     listing_records: 12
     searchable: true
-    default_status: published
+    default_status: draft
     sort: -datecreated
 #    relations:
 #        subcategories:

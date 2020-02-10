@@ -14,7 +14,6 @@
             {% for key, locale in locales|default([]) %}
                 <link rel="alternate" hreflang="{{key|replace({'_': '-'})}}" href="{{locale.getUrl()}}">
             {% endfor %}
-            <link rel="stylesheet" href="{{ asset('assets/css/lightslider.css', 'theme') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/styles2.css', 'theme') }}">
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         </head>
