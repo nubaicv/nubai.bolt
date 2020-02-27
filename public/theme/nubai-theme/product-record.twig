@@ -64,8 +64,10 @@
                         </div>
 
                         <div>
-                            <input id="quantity-selector" type="number" name="quantity" min="1" max="{{ product.stock }}" disabled>
-                            <button class="w3-btn w3-large w3-teal" type="button" disabled><i class="fas fa-cart-arrow-down"></i> {{ l('product:record:addtocartbutton')|capitalize }}</button>
+                            <form id="add-to-cart">
+                                <input id="quantity-selector" type="number" name="quantity" min="1" max="{{ product.stock }}" disabled>
+                                <button class="w3-btn w3-large w3-teal" type="button" disabled><i class="fas fa-cart-arrow-down"></i> {{ l('product:record:addtocartbutton')|capitalize }}</button>
+                            </form>
                         </div>
                     </div>
 
