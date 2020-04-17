@@ -3,7 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/product-record.twig</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/src/Nubai/FrontendController.php</file>
+            <file>file:/home/ricardo/NetBeansProjects/nubai.bolt/public/theme/nubai-theme/partials/_header.twig</file>
         </group>
     </open-files>
 </project-private>

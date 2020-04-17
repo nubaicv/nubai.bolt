@@ -12,7 +12,7 @@
             <div class="w3-container w3-display-right">
 
                 {% if not app.session.get('customer') %}
-                    <a href="{{ path('memberspage', {'go': canonical()|escape }) }}" class="w3-button w3-white w3-text-teal w3-hide-small w3-hide-medium"><i class="fas fa-sign-in-alt"></i> {{ l('members:login:submit')|capitalize }}</a>
+                    <a href="{{ path('memberspage') }}" class="w3-button w3-white w3-text-teal w3-hide-small w3-hide-medium"><i class="fas fa-sign-in-alt"></i> {{ l('members:login:submit')|capitalize }}</a>
                     {% else %}
                     <div class="w3-dropdown-hover w3-hide-small w3-hide-medium">
                         <button class="w3-button w3-teal w3-hover-teal">{{ app.session.get('customer').email }} <i class="fas fa-sort-down"></i></button>
